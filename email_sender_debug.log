@@ -1,0 +1,941 @@
+2025-10-11 15:14:27,284 - __main__ - DEBUG - Adicionado ao sys.path: C:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 15:14:27,330 - __main__ - DEBUG - ✅ Importação Ui_MainWindow bem-sucedida
+2025-10-11 15:14:28,266 - __main__ - DEBUG - ✅ Importação EmailService bem-sucedida
+2025-10-11 15:14:28,271 - __main__ - DEBUG - ✅ Importações de utils bem-sucedidas
+2025-10-11 15:14:28,272 - __main__ - INFO - 🚀 Iniciando aplicação Email Sender...
+2025-10-11 15:14:57,744 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 15:14:57,745 - gui.main_window - ERROR - ❌ Erro ao importar Ui_MainWindow: No module named 'ui_mainwindow'
+2025-10-11 15:15:20,790 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 15:15:20,828 - __main__ - DEBUG - ✅ Importação Ui_MainWindow bem-sucedida
+2025-10-11 15:15:21,501 - __main__ - DEBUG - ✅ Importação EmailService bem-sucedida
+2025-10-11 15:15:21,503 - __main__ - DEBUG - ✅ Importações de utils bem-sucedidas
+2025-10-11 15:15:21,504 - __main__ - INFO - 🚀 Iniciando aplicação Email Sender...
+2025-10-11 15:15:21,535 - __main__ - DEBUG - ✅ QApplication criado
+2025-10-11 15:15:21,535 - __main__ - DEBUG - ✅ Configurações da aplicação definidas
+2025-10-11 15:15:21,535 - __main__ - INFO - 🏗️ Criando janela principal...
+2025-10-11 15:15:21,535 - __main__ - INFO - 🏗️ Inicializando MainWindow...
+2025-10-11 15:15:21,536 - __main__ - DEBUG - 🔧 Configurando interface UI...
+2025-10-11 15:15:21,552 - __main__ - DEBUG - ✅ Interface UI configurada
+2025-10-11 15:15:21,553 - __main__ - DEBUG - 📧 Criando EmailService...
+2025-10-11 15:15:21,553 - __main__ - DEBUG - ✅ EmailService criado
+2025-10-11 15:15:21,553 - __main__ - DEBUG - 📊 Estado inicial configurado
+2025-10-11 15:15:21,553 - __main__ - DEBUG - 📝 Placeholders configurados
+2025-10-11 15:15:21,554 - __main__ - DEBUG - 🔗 Sinais conectados
+2025-10-11 15:15:21,554 - __main__ - INFO - ✅ MainWindow inicializada com sucesso
+2025-10-11 15:15:21,554 - __main__ - INFO - ✅ Janela principal criada
+2025-10-11 15:15:21,554 - __main__ - INFO - 👁️ Exibindo janela...
+2025-10-11 15:15:21,659 - __main__ - INFO - ✅ Aplicação iniciada com sucesso!
+2025-10-11 15:15:25,338 - __main__ - INFO - 📧 Iniciando configuração de remetente...
+2025-10-11 15:15:30,152 - __main__ - DEBUG - 📧 Email inserido: eu
+2025-10-11 15:22:22,090 - __main__ - DEBUG - Adicionado ao sys.path: C:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 15:22:22,134 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 15:22:23,135 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 15:22:23,138 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 15:22:23,138 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 15:22:23,190 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 15:22:23,190 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 15:22:23,190 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 15:22:23,191 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 15:22:23,191 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 15:22:23,212 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 15:22:23,212 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 15:22:23,212 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 15:22:23,212 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 15:22:23,212 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 15:22:23,213 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 15:22:23,213 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 15:22:23,213 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 15:22:23,213 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 15:22:23,318 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 15:22:31,415 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 15:22:34,745 - __main__ - DEBUG - [EMAIL] Email inserido: eu
+2025-10-11 15:22:44,572 - __main__ - DEBUG - Adicionado ao sys.path: C:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 15:22:44,630 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 15:22:45,822 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 15:22:45,824 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 15:22:45,825 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 15:22:45,882 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 15:22:45,882 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 15:22:45,882 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 15:22:45,882 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 15:22:45,883 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 15:22:45,904 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 15:22:45,904 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 15:22:45,904 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 15:22:45,904 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 15:22:45,904 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 15:22:45,905 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 15:22:45,905 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 15:22:45,905 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 15:22:45,905 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 15:22:46,039 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 15:22:53,339 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 15:22:53,390 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 15:22:54,665 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 15:22:54,677 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 15:22:54,679 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 15:22:54,745 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 15:22:54,745 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 15:22:54,745 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 15:22:54,746 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 15:22:54,746 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 15:22:54,764 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 15:22:54,764 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 15:22:54,764 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 15:22:54,764 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 15:22:54,765 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 15:22:54,765 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 15:22:54,765 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 15:22:54,766 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 15:22:54,766 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 15:22:54,924 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 15:23:01,856 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 15:23:05,727 - __main__ - DEBUG - [EMAIL] Email inserido: eu
+2025-10-11 15:23:14,297 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 15:23:19,390 - __main__ - DEBUG - [EMAIL] Email inserido: eu@mail
+2025-10-11 16:39:40,937 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 16:39:41,023 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 16:39:43,753 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 16:39:43,759 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 16:39:43,762 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 16:39:43,838 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 16:39:43,839 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 16:39:43,839 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 16:39:43,839 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 16:39:43,841 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 16:39:43,895 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 16:39:43,896 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 16:39:43,896 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 16:39:43,896 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 16:39:43,897 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 16:39:43,898 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 16:39:43,900 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 16:39:43,901 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 16:39:43,902 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 16:39:44,050 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 16:39:46,549 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 16:39:49,439 - __main__ - DEBUG - [EMAIL] Email inserido: eu
+2025-10-11 16:39:52,095 - __main__ - DEBUG - [OK] Senha inserida (oculta no log por seguranca)
+2025-10-11 16:39:52,095 - __main__ - WARNING - [ERRO] Email invalido: eu
+2025-10-11 19:04:50,515 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 19:04:50,551 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 19:04:51,216 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 19:04:51,218 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 19:04:51,218 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 19:04:51,252 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 19:04:51,252 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 19:04:51,252 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 19:04:51,253 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 19:04:51,253 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 19:04:51,269 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 19:04:51,269 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 19:04:51,269 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 19:04:51,270 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 19:04:51,270 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 19:04:51,270 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 19:04:51,271 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 19:04:51,271 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 19:04:51,271 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 19:04:51,362 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 19:05:00,212 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 19:05:08,019 - __main__ - DEBUG - [EMAIL] Email inserido: gustavo.fc.cfc@gmail.com
+2025-10-11 19:05:10,572 - __main__ - DEBUG - [OK] Senha inserida (oculta no log por seguranca)
+2025-10-11 19:05:10,573 - __main__ - INFO - [OK] Remetente configurado: gustavo.fc.cfc@gmail.com
+2025-10-11 19:05:14,013 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-11 19:05:17,491 - __main__ - INFO - [FILE] Arquivo selecionado: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:05:17,491 - __main__ - DEBUG - [OK] Formato de arquivo valido: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:05:17,492 - __main__ - DEBUG - [PROCESS] Processando arquivo com EmailService...
+2025-10-11 19:05:17,492 - core.email_service - INFO - [FILE] Processando arquivo: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:05:17,492 - core.email_service - DEBUG - [OK] EmailDAO criado
+2025-10-11 19:05:17,492 - dao.email_dao - INFO - [FILE] Lendo arquivo: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:05:17,492 - dao.email_dao - DEBUG - [EXCEL] Lendo arquivo Excel...
+2025-10-11 19:05:17,941 - dao.email_dao - DEBUG - [DATA] DataFrame criado com 1 linhas e 1 colunas
+2025-10-11 19:05:17,941 - dao.email_dao - DEBUG - [REGEX] Regex para emails: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+2025-10-11 19:05:17,941 - dao.email_dao - DEBUG - [PROCESS] Processando 1 colunas...
+2025-10-11 19:05:17,941 - dao.email_dao - DEBUG - [COLUMN] Processando coluna: TESTES
+2025-10-11 19:05:17,945 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'gustavo.fc.cfc@gmail.com...': ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:05:17,945 - dao.email_dao - INFO - [EMAIL] Total de emails unicos encontrados: 1
+2025-10-11 19:05:17,946 - dao.email_dao - DEBUG - [EMAIL] Emails: ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:05:17,946 - core.email_service - INFO - [EMAIL] 1 emails extraidos do arquivo
+2025-10-11 19:05:17,946 - core.email_service - DEBUG - [EMAIL] Emails encontrados: ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:05:17,946 - __main__ - INFO - [EMAIL] 1 emails encontrados no arquivo
+2025-10-11 19:05:17,946 - __main__ - INFO - [EMAIL] 1 novos emails adicionados
+2025-10-11 19:05:17,946 - __main__ - INFO - [TOTAL] Total de destinatarios: 1
+2025-10-11 19:05:29,866 - core.email_service - INFO - [CONFIG] Configurando remetente: gustavo.fc.cfc@gmail.com
+2025-10-11 19:05:29,867 - controller.email_controller - INFO - [INIT] Inicializando EmailController para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:05:29,867 - controller.email_controller - DEBUG - [SMTP] Conectando ao servidor SMTP...
+2025-10-11 19:05:30,432 - controller.email_controller - DEBUG - [OK] Conexao SMTP estabelecida
+2025-10-11 19:05:30,432 - controller.email_controller - DEBUG - [AUTH] Fazendo login no servidor...
+2025-10-11 19:05:30,939 - controller.email_controller - INFO - [OK] Login SMTP realizado com sucesso
+2025-10-11 19:05:30,939 - core.email_service - INFO - [OK] Remetente configurado com sucesso
+2025-10-11 19:07:50,960 - controller.email_controller - DEBUG - [SMTP] Fechando conexao SMTP...
+2025-10-11 19:07:51,154 - controller.email_controller - DEBUG - [OK] Conexao SMTP fechada
+2025-10-11 19:10:44,765 - __main__ - DEBUG - Adicionado ao sys.path: C:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 19:10:44,843 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 19:10:45,888 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 19:10:45,890 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 19:10:45,890 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 19:10:45,919 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 19:10:45,919 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 19:10:45,919 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 19:10:45,919 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 19:10:45,919 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 19:10:45,931 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 19:10:45,931 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 19:10:45,931 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 19:10:45,931 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 19:10:45,931 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 19:10:45,931 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 19:10:45,931 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 19:10:45,931 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 19:10:45,932 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 19:10:46,014 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 19:11:11,216 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 19:11:19,244 - __main__ - DEBUG - [EMAIL] Email inserido: gustavo.fc.cfc@gmail.com
+2025-10-11 19:13:20,451 - __main__ - DEBUG - [OK] Senha inserida (oculta no log por seguranca)
+2025-10-11 19:13:20,452 - __main__ - INFO - [OK] Remetente configurado: gustavo.fc.cfc@gmail.com
+2025-10-11 19:13:27,732 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-11 19:13:30,959 - __main__ - INFO - [FILE] Arquivo selecionado: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:13:30,959 - __main__ - DEBUG - [OK] Formato de arquivo valido: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:13:30,959 - __main__ - DEBUG - [PROCESS] Processando arquivo com EmailService...
+2025-10-11 19:13:30,959 - core.email_service - INFO - [FILE] Processando arquivo: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:13:30,960 - core.email_service - DEBUG - [OK] EmailDAO criado
+2025-10-11 19:13:30,960 - dao.email_dao - INFO - [FILE] Lendo arquivo: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:13:30,960 - dao.email_dao - DEBUG - [EXCEL] Lendo arquivo Excel...
+2025-10-11 19:13:31,272 - dao.email_dao - DEBUG - [DATA] DataFrame criado com 1 linhas e 1 colunas
+2025-10-11 19:13:31,272 - dao.email_dao - DEBUG - [REGEX] Regex para emails: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+2025-10-11 19:13:31,272 - dao.email_dao - DEBUG - [PROCESS] Processando 1 colunas...
+2025-10-11 19:13:31,273 - dao.email_dao - DEBUG - [COLUMN] Processando coluna: TESTES
+2025-10-11 19:13:31,273 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'gustavo.fc.cfc@gmail.com...': ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:13:31,273 - dao.email_dao - INFO - [EMAIL] Total de emails unicos encontrados: 1
+2025-10-11 19:13:31,273 - dao.email_dao - DEBUG - [EMAIL] Emails: ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:13:31,273 - core.email_service - INFO - [EMAIL] 1 emails extraidos do arquivo
+2025-10-11 19:13:31,273 - core.email_service - DEBUG - [EMAIL] Emails encontrados: ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:13:31,273 - __main__ - INFO - [EMAIL] 1 emails encontrados no arquivo
+2025-10-11 19:13:31,273 - __main__ - INFO - [EMAIL] 1 novos emails adicionados
+2025-10-11 19:13:31,273 - __main__ - INFO - [TOTAL] Total de destinatarios: 1
+2025-10-11 19:13:39,121 - core.email_service - INFO - [CONFIG] Configurando remetente: gustavo.fc.cfc@gmail.com
+2025-10-11 19:13:39,121 - controller.email_controller - INFO - [INIT] Inicializando EmailController para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:13:39,121 - controller.email_controller - DEBUG - [SMTP] Conectando ao servidor SMTP...
+2025-10-11 19:13:39,741 - controller.email_controller - DEBUG - [OK] Conexao SMTP estabelecida
+2025-10-11 19:13:39,741 - controller.email_controller - DEBUG - [AUTH] Fazendo login no servidor...
+2025-10-11 19:13:40,254 - controller.email_controller - INFO - [OK] Login SMTP realizado com sucesso
+2025-10-11 19:13:40,254 - core.email_service - INFO - [OK] Remetente configurado com sucesso
+2025-10-11 19:14:24,443 - controller.email_controller - DEBUG - [SMTP] Fechando conexao SMTP...
+2025-10-11 19:14:24,643 - controller.email_controller - DEBUG - [OK] Conexao SMTP fechada
+2025-10-11 19:15:18,710 - __main__ - DEBUG - Adicionado ao sys.path: C:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 19:15:18,731 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 19:15:19,713 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 19:15:19,717 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 19:15:19,717 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 19:15:19,769 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 19:15:19,770 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 19:15:19,770 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 19:15:19,770 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 19:15:19,770 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 19:15:19,793 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 19:15:19,794 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 19:15:19,794 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 19:15:19,794 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 19:15:19,794 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 19:15:19,794 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 19:15:19,795 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 19:15:19,795 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 19:15:19,795 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 19:15:19,920 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 19:15:29,367 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 19:15:42,957 - __main__ - DEBUG - [EMAIL] Email inserido: gustavo.fc.cfc@gmail.com
+2025-10-11 19:15:44,566 - __main__ - DEBUG - [OK] Senha inserida (oculta no log por seguranca)
+2025-10-11 19:15:44,566 - __main__ - INFO - [OK] Remetente configurado: gustavo.fc.cfc@gmail.com
+2025-10-11 19:15:47,312 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-11 19:15:50,374 - __main__ - INFO - [FILE] Arquivo selecionado: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:15:50,374 - __main__ - DEBUG - [OK] Formato de arquivo valido: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:15:50,374 - __main__ - DEBUG - [PROCESS] Processando arquivo com EmailService...
+2025-10-11 19:15:50,374 - core.email_service - INFO - [FILE] Processando arquivo: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:15:50,374 - core.email_service - DEBUG - [OK] EmailDAO criado
+2025-10-11 19:15:50,374 - dao.email_dao - INFO - [FILE] Lendo arquivo: C:/Users/daisy/Downloads/Planilha sem título.xlsx
+2025-10-11 19:15:50,374 - dao.email_dao - DEBUG - [EXCEL] Lendo arquivo Excel...
+2025-10-11 19:15:50,650 - dao.email_dao - DEBUG - [DATA] DataFrame criado com 1 linhas e 1 colunas
+2025-10-11 19:15:50,650 - dao.email_dao - DEBUG - [REGEX] Regex para emails: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+2025-10-11 19:15:50,650 - dao.email_dao - DEBUG - [PROCESS] Processando 1 colunas...
+2025-10-11 19:15:50,650 - dao.email_dao - DEBUG - [COLUMN] Processando coluna: TESTES
+2025-10-11 19:15:50,650 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'gustavo.fc.cfc@gmail.com...': ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:15:50,650 - dao.email_dao - INFO - [EMAIL] Total de emails unicos encontrados: 1
+2025-10-11 19:15:50,650 - dao.email_dao - DEBUG - [EMAIL] Emails: ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:15:50,651 - core.email_service - INFO - [EMAIL] 1 emails extraidos do arquivo
+2025-10-11 19:15:50,651 - core.email_service - DEBUG - [EMAIL] Emails encontrados: ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:15:50,651 - __main__ - INFO - [EMAIL] 1 emails encontrados no arquivo
+2025-10-11 19:15:50,651 - __main__ - INFO - [EMAIL] 1 novos emails adicionados
+2025-10-11 19:15:50,651 - __main__ - INFO - [TOTAL] Total de destinatarios: 1
+2025-10-11 19:15:58,605 - core.email_service - INFO - [CONFIG] Configurando remetente: gustavo.fc.cfc@gmail.com
+2025-10-11 19:15:58,605 - controller.email_controller - INFO - [INIT] Inicializando EmailController para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:15:58,605 - controller.email_controller - DEBUG - [SMTP] Conectando ao servidor SMTP...
+2025-10-11 19:15:59,477 - controller.email_controller - DEBUG - [OK] Conexao SMTP estabelecida
+2025-10-11 19:15:59,477 - controller.email_controller - DEBUG - [AUTH] Fazendo login no servidor...
+2025-10-11 19:16:00,030 - controller.email_controller - INFO - [OK] Login SMTP realizado com sucesso
+2025-10-11 19:16:00,030 - core.email_service - INFO - [OK] Remetente configurado com sucesso
+2025-10-11 19:16:00,045 - __main__ - DEBUG - [EMAIL] EmailWorker criado para 1 destinatarios
+2025-10-11 19:16:00,048 - __main__ - INFO - [ENVIO] Iniciando envio de emails para 1 destinatarios
+2025-10-11 19:16:00,048 - core.email_service - INFO - [EMAIL] Iniciando envio em massa para 1 destinatarios
+2025-10-11 19:16:00,048 - core.email_service - DEBUG - [EMAIL] Assunto: teste
+2025-10-11 19:16:00,048 - core.email_service - DEBUG - [EMAIL] Corpo: teste teste
+2025-10-11 19:16:00,048 - core.email_service - DEBUG - [PROCESS] Chamando controller.sendMassEmails...
+2025-10-11 19:16:00,048 - controller.email_controller - INFO - [EMAIL] Iniciando envio em massa para 1 destinatarios
+2025-10-11 19:16:00,048 - controller.email_controller - DEBUG - [EMAIL] Assunto: teste
+2025-10-11 19:16:00,049 - controller.email_controller - DEBUG - [EMAIL] Enviando email 1/1 para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:16:00,049 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:16:00,060 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:16:01,336 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:16:01,336 - controller.email_controller - DEBUG - [OK] Email 1 enviado com sucesso
+2025-10-11 19:16:01,336 - controller.email_controller - INFO - [OK] Todos os emails foram enviados com sucesso
+2025-10-11 19:16:01,336 - core.email_service - INFO - [OK] Envio concluido: sucesso
+2025-10-11 19:16:01,336 - __main__ - INFO - [OK] Envio concluido com sucesso: Emails enviados com sucesso
+2025-10-11 19:16:49,847 - controller.email_controller - DEBUG - [SMTP] Fechando conexao SMTP...
+2025-10-11 19:16:50,045 - controller.email_controller - DEBUG - [OK] Conexao SMTP fechada
+2025-10-11 19:18:28,325 - __main__ - DEBUG - Adicionado ao sys.path: C:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 19:18:28,342 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 19:18:29,307 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 19:18:29,309 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 19:18:29,309 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 19:18:29,355 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 19:18:29,355 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 19:18:29,355 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 19:18:29,355 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 19:18:29,356 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 19:18:29,375 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 19:18:29,375 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 19:18:29,375 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 19:18:29,375 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 19:18:29,375 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 19:18:29,376 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 19:18:29,376 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 19:18:29,376 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 19:18:29,376 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 19:18:29,490 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 19:18:39,725 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 19:18:46,850 - __main__ - DEBUG - [EMAIL] Email inserido: gustavo.fc.cfc@gmail.com
+2025-10-11 19:18:48,450 - __main__ - DEBUG - [OK] Senha inserida (oculta no log por seguranca)
+2025-10-11 19:18:48,450 - __main__ - INFO - [OK] Remetente configurado: gustavo.fc.cfc@gmail.com
+2025-10-11 19:24:10,743 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-11 19:24:13,877 - __main__ - INFO - [FILE] Arquivo selecionado: C:/Users/daisy/Downloads/Planilha sem título (1).xlsx
+2025-10-11 19:24:13,878 - __main__ - DEBUG - [OK] Formato de arquivo valido: C:/Users/daisy/Downloads/Planilha sem título (1).xlsx
+2025-10-11 19:24:13,878 - __main__ - DEBUG - [PROCESS] Processando arquivo com EmailService...
+2025-10-11 19:24:13,878 - core.email_service - INFO - [FILE] Processando arquivo: C:/Users/daisy/Downloads/Planilha sem título (1).xlsx
+2025-10-11 19:24:13,878 - core.email_service - DEBUG - [OK] EmailDAO criado
+2025-10-11 19:24:13,878 - dao.email_dao - INFO - [FILE] Lendo arquivo: C:/Users/daisy/Downloads/Planilha sem título (1).xlsx
+2025-10-11 19:24:13,878 - dao.email_dao - DEBUG - [EXCEL] Lendo arquivo Excel...
+2025-10-11 19:24:14,161 - dao.email_dao - DEBUG - [DATA] DataFrame criado com 3 linhas e 1 colunas
+2025-10-11 19:24:14,162 - dao.email_dao - DEBUG - [REGEX] Regex para emails: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+2025-10-11 19:24:14,162 - dao.email_dao - DEBUG - [PROCESS] Processando 1 colunas...
+2025-10-11 19:24:14,162 - dao.email_dao - DEBUG - [COLUMN] Processando coluna: TESTES
+2025-10-11 19:24:14,162 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'gustavo.fc.cfc@gmail.com...': ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:24:14,162 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'nowhereman.nothing.0@gmail.com...': ['nowhereman.nothing.0@gmail.com']
+2025-10-11 19:24:14,162 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'heriton@jaralcon.com.br...': ['heriton@jaralcon.com.br']
+2025-10-11 19:24:14,162 - dao.email_dao - INFO - [EMAIL] Total de emails unicos encontrados: 3
+2025-10-11 19:24:14,162 - dao.email_dao - DEBUG - [EMAIL] Emails: ['gustavo.fc.cfc@gmail.com', 'nowhereman.nothing.0@gmail.com', 'heriton@jaralcon.com.br']
+2025-10-11 19:24:14,163 - core.email_service - INFO - [EMAIL] 3 emails extraidos do arquivo
+2025-10-11 19:24:14,163 - core.email_service - DEBUG - [EMAIL] Emails encontrados: ['gustavo.fc.cfc@gmail.com', 'nowhereman.nothing.0@gmail.com', 'heriton@jaralcon.com.br']
+2025-10-11 19:24:14,163 - __main__ - INFO - [EMAIL] 3 emails encontrados no arquivo
+2025-10-11 19:24:14,163 - __main__ - INFO - [EMAIL] 3 novos emails adicionados
+2025-10-11 19:24:14,163 - __main__ - INFO - [TOTAL] Total de destinatarios: 3
+2025-10-11 19:24:41,397 - core.email_service - INFO - [CONFIG] Configurando remetente: gustavo.fc.cfc@gmail.com
+2025-10-11 19:24:41,398 - controller.email_controller - INFO - [INIT] Inicializando EmailController para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:24:41,398 - controller.email_controller - DEBUG - [SMTP] Conectando ao servidor SMTP...
+2025-10-11 19:24:42,561 - controller.email_controller - DEBUG - [OK] Conexao SMTP estabelecida
+2025-10-11 19:24:42,561 - controller.email_controller - DEBUG - [AUTH] Fazendo login no servidor...
+2025-10-11 19:24:43,079 - controller.email_controller - INFO - [OK] Login SMTP realizado com sucesso
+2025-10-11 19:24:43,079 - core.email_service - INFO - [OK] Remetente configurado com sucesso
+2025-10-11 19:24:43,096 - __main__ - DEBUG - [EMAIL] EmailWorker criado para 3 destinatarios
+2025-10-11 19:24:43,096 - __main__ - DEBUG - [ANEXO] 1 anexo(s) incluidos
+2025-10-11 19:24:43,098 - __main__ - INFO - [ENVIO] Iniciando envio de emails para 3 destinatarios
+2025-10-11 19:24:43,098 - core.email_service - INFO - [EMAIL] Iniciando envio em massa para 3 destinatarios
+2025-10-11 19:24:43,098 - core.email_service - DEBUG - [EMAIL] Assunto: teste 2
+2025-10-11 19:24:43,098 - core.email_service - DEBUG - [EMAIL] Corpo: teste teste
+2025-10-11 19:24:43,098 - core.email_service - INFO - [ANEXO] 1 anexo(s) serão enviados
+2025-10-11 19:24:43,098 - core.email_service - DEBUG - [PROCESS] Chamando controller.sendMassEmails...
+2025-10-11 19:24:43,099 - controller.email_controller - INFO - [EMAIL] Iniciando envio em massa para 3 destinatarios
+2025-10-11 19:24:43,099 - controller.email_controller - DEBUG - [EMAIL] Assunto: teste 2
+2025-10-11 19:24:43,099 - controller.email_controller - INFO - [ANEXO] 1 anexo(s) serão enviados com cada email
+2025-10-11 19:24:43,099 - controller.email_controller - DEBUG - [EMAIL] Enviando email 1/3 para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:24:43,099 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:24:43,099 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 19:24:43,103 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:24:45,211 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:24:45,211 - controller.email_controller - DEBUG - [OK] Email 1 enviado com sucesso
+2025-10-11 19:24:45,211 - controller.email_controller - DEBUG - [EMAIL] Enviando email 2/3 para: nowhereman.nothing.0@gmail.com
+2025-10-11 19:24:45,211 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: nowhereman.nothing.0@gmail.com
+2025-10-11 19:24:45,211 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 19:24:45,213 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: nowhereman.nothing.0@gmail.com
+2025-10-11 19:24:47,812 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: nowhereman.nothing.0@gmail.com
+2025-10-11 19:24:47,813 - controller.email_controller - DEBUG - [OK] Email 2 enviado com sucesso
+2025-10-11 19:24:47,813 - controller.email_controller - DEBUG - [EMAIL] Enviando email 3/3 para: heriton@jaralcon.com.br
+2025-10-11 19:24:47,813 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: heriton@jaralcon.com.br
+2025-10-11 19:24:47,813 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 19:24:47,815 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: heriton@jaralcon.com.br
+2025-10-11 19:24:50,450 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: heriton@jaralcon.com.br
+2025-10-11 19:24:50,450 - controller.email_controller - DEBUG - [OK] Email 3 enviado com sucesso
+2025-10-11 19:24:50,450 - controller.email_controller - INFO - [OK] Todos os emails foram enviados com sucesso
+2025-10-11 19:24:50,450 - core.email_service - INFO - [OK] Envio concluido: sucesso
+2025-10-11 19:24:50,450 - __main__ - INFO - [OK] Envio concluido com sucesso: Emails enviados com sucesso
+2025-10-11 19:36:52,162 - controller.email_controller - DEBUG - [SMTP] Fechando conexao SMTP...
+2025-10-11 19:36:52,163 - controller.email_controller - DEBUG - [OK] Conexao SMTP fechada
+2025-10-11 19:36:59,135 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 19:36:59,151 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 19:36:59,874 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 19:36:59,876 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 19:36:59,876 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 19:36:59,906 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 19:36:59,906 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 19:36:59,906 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 19:36:59,906 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 19:36:59,907 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 19:36:59,920 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 19:36:59,921 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 19:36:59,921 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 19:36:59,921 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 19:36:59,921 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 19:36:59,922 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 19:36:59,922 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 19:36:59,923 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 19:36:59,923 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 19:37:00,012 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 19:37:23,296 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 19:37:33,230 - __main__ - DEBUG - [EMAIL] Email inserido: gustavo.fc.cfc@gmail.com
+2025-10-11 19:37:37,910 - __main__ - DEBUG - [OK] Senha inserida (oculta no log por seguranca)
+2025-10-11 19:37:37,910 - __main__ - INFO - [OK] Remetente configurado: gustavo.fc.cfc@gmail.com
+2025-10-11 19:37:50,112 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-11 19:37:51,765 - __main__ - INFO - [FILE] Arquivo selecionado: C:/Users/daisy/Downloads/Planilha sem título (1).xlsx
+2025-10-11 19:37:51,765 - __main__ - DEBUG - [OK] Formato de arquivo valido: C:/Users/daisy/Downloads/Planilha sem título (1).xlsx
+2025-10-11 19:37:51,765 - __main__ - DEBUG - [PROCESS] Processando arquivo com EmailService...
+2025-10-11 19:37:51,765 - core.email_service - INFO - [FILE] Processando arquivo: C:/Users/daisy/Downloads/Planilha sem título (1).xlsx
+2025-10-11 19:37:51,766 - core.email_service - DEBUG - [OK] EmailDAO criado
+2025-10-11 19:37:51,766 - dao.email_dao - INFO - [FILE] Lendo arquivo: C:/Users/daisy/Downloads/Planilha sem título (1).xlsx
+2025-10-11 19:37:51,766 - dao.email_dao - DEBUG - [EXCEL] Lendo arquivo Excel...
+2025-10-11 19:37:52,065 - dao.email_dao - DEBUG - [DATA] DataFrame criado com 3 linhas e 1 colunas
+2025-10-11 19:37:52,065 - dao.email_dao - DEBUG - [REGEX] Regex para emails: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+2025-10-11 19:37:52,065 - dao.email_dao - DEBUG - [PROCESS] Processando 1 colunas...
+2025-10-11 19:37:52,065 - dao.email_dao - DEBUG - [COLUMN] Processando coluna: TESTES
+2025-10-11 19:37:52,066 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'gustavo.fc.cfc@gmail.com...': ['gustavo.fc.cfc@gmail.com']
+2025-10-11 19:37:52,066 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'nowhereman.nothing.0@gmail.com...': ['nowhereman.nothing.0@gmail.com']
+2025-10-11 19:37:52,066 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'heriton@jaralcon.com.br...': ['heriton@jaralcon.com.br']
+2025-10-11 19:37:52,066 - dao.email_dao - INFO - [EMAIL] Total de emails unicos encontrados: 3
+2025-10-11 19:37:52,067 - dao.email_dao - DEBUG - [EMAIL] Emails: ['heriton@jaralcon.com.br', 'gustavo.fc.cfc@gmail.com', 'nowhereman.nothing.0@gmail.com']
+2025-10-11 19:37:52,067 - core.email_service - INFO - [EMAIL] 3 emails extraidos do arquivo
+2025-10-11 19:37:52,067 - core.email_service - DEBUG - [EMAIL] Emails encontrados: ['heriton@jaralcon.com.br', 'gustavo.fc.cfc@gmail.com', 'nowhereman.nothing.0@gmail.com']
+2025-10-11 19:37:52,067 - __main__ - INFO - [EMAIL] 3 emails encontrados no arquivo
+2025-10-11 19:37:52,067 - __main__ - INFO - [EMAIL] 3 novos emails adicionados
+2025-10-11 19:37:52,067 - __main__ - INFO - [TOTAL] Total de destinatarios: 3
+2025-10-11 19:38:05,974 - core.email_service - INFO - [CONFIG] Configurando remetente: gustavo.fc.cfc@gmail.com
+2025-10-11 19:38:05,974 - controller.email_controller - INFO - [INIT] Inicializando EmailController para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:38:05,975 - controller.email_controller - DEBUG - [SMTP] Conectando ao servidor SMTP...
+2025-10-11 19:38:06,484 - controller.email_controller - DEBUG - [OK] Conexao SMTP estabelecida
+2025-10-11 19:38:06,484 - controller.email_controller - DEBUG - [AUTH] Fazendo login no servidor...
+2025-10-11 19:38:07,000 - controller.email_controller - INFO - [OK] Login SMTP realizado com sucesso
+2025-10-11 19:38:07,001 - core.email_service - INFO - [OK] Remetente configurado com sucesso
+2025-10-11 19:38:07,015 - __main__ - DEBUG - [EMAIL] EmailWorker criado para 3 destinatarios
+2025-10-11 19:38:07,015 - __main__ - DEBUG - [ANEXO] 1 anexo(s) incluidos
+2025-10-11 19:38:07,018 - __main__ - INFO - [ENVIO] Iniciando envio de emails para 3 destinatarios
+2025-10-11 19:38:07,018 - core.email_service - INFO - [EMAIL] Iniciando envio em massa para 3 destinatarios
+2025-10-11 19:38:07,018 - core.email_service - DEBUG - [EMAIL] Assunto: assunto
+2025-10-11 19:38:07,018 - core.email_service - DEBUG - [EMAIL] Corpo: texto do email
+2025-10-11 19:38:07,018 - core.email_service - INFO - [ANEXO] 1 anexo(s) serão enviados
+2025-10-11 19:38:07,019 - core.email_service - DEBUG - [PROCESS] Chamando controller.sendMassEmails...
+2025-10-11 19:38:07,019 - controller.email_controller - INFO - [EMAIL] Iniciando envio em massa para 3 destinatarios
+2025-10-11 19:38:07,019 - controller.email_controller - DEBUG - [EMAIL] Assunto: assunto
+2025-10-11 19:38:07,019 - controller.email_controller - INFO - [ANEXO] 1 anexo(s) serão enviados com cada email
+2025-10-11 19:38:07,019 - controller.email_controller - DEBUG - [EMAIL] Enviando email 1/3 para: heriton@jaralcon.com.br
+2025-10-11 19:38:07,020 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: heriton@jaralcon.com.br
+2025-10-11 19:38:07,020 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 19:38:07,112 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: heriton@jaralcon.com.br
+2025-10-11 19:38:30,739 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: heriton@jaralcon.com.br
+2025-10-11 19:38:30,740 - controller.email_controller - DEBUG - [OK] Email 1 enviado com sucesso
+2025-10-11 19:38:30,740 - controller.email_controller - DEBUG - [EMAIL] Enviando email 2/3 para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:38:30,740 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:38:30,740 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 19:38:30,826 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:38:55,288 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: gustavo.fc.cfc@gmail.com
+2025-10-11 19:38:55,289 - controller.email_controller - DEBUG - [OK] Email 2 enviado com sucesso
+2025-10-11 19:38:55,289 - controller.email_controller - DEBUG - [EMAIL] Enviando email 3/3 para: nowhereman.nothing.0@gmail.com
+2025-10-11 19:38:55,289 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: nowhereman.nothing.0@gmail.com
+2025-10-11 19:38:55,289 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 19:38:55,380 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: nowhereman.nothing.0@gmail.com
+2025-10-11 19:39:18,455 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: nowhereman.nothing.0@gmail.com
+2025-10-11 19:39:18,455 - controller.email_controller - DEBUG - [OK] Email 3 enviado com sucesso
+2025-10-11 19:39:18,456 - controller.email_controller - INFO - [OK] Todos os emails foram enviados com sucesso
+2025-10-11 19:39:18,456 - core.email_service - INFO - [OK] Envio concluido: sucesso
+2025-10-11 19:39:18,456 - __main__ - INFO - [OK] Envio concluido com sucesso: Emails enviados com sucesso
+2025-10-11 20:02:49,088 - controller.email_controller - DEBUG - [SMTP] Fechando conexao SMTP...
+2025-10-11 20:02:49,089 - controller.email_controller - DEBUG - [OK] Conexao SMTP fechada
+2025-10-11 20:34:14,880 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 20:34:14,903 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 20:34:15,604 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 20:34:15,607 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 20:34:15,608 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 20:34:15,652 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 20:34:15,653 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 20:34:15,653 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 20:34:15,653 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 20:34:15,655 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 20:34:15,685 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 20:34:15,685 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 20:34:15,685 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 20:34:15,685 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 20:34:15,686 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 20:34:15,687 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 20:34:15,687 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 20:34:15,687 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 20:34:15,688 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 20:34:15,781 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 20:34:18,158 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 20:34:19,132 - __main__ - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-11 20:34:20,126 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-11 20:34:22,469 - __main__ - DEBUG - [CANCEL] Importacao cancelada pelo usuario
+2025-10-11 20:38:05,060 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-11 20:38:05,080 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-11 20:38:06,041 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-11 20:38:06,043 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-11 20:38:06,044 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-11 20:38:06,086 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-11 20:38:06,087 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-11 20:38:06,087 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-11 20:38:06,087 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-11 20:38:06,087 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-11 20:38:06,103 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-11 20:38:06,103 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-11 20:38:06,104 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-11 20:38:06,104 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-11 20:38:06,104 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-11 20:38:06,104 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-11 20:38:06,105 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-11 20:38:06,105 - __main__ - INFO - [OK] Janela principal criada
+2025-10-11 20:38:06,105 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-11 20:38:06,253 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-11 20:39:51,260 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 20:40:01,588 - __main__ - DEBUG - [EMAIL] Email inserido: gustavo.fc.cfc@gmail.com
+2025-10-11 20:40:11,141 - __main__ - DEBUG - [OK] Senha inserida (oculta no log por seguranca)
+2025-10-11 20:40:11,142 - __main__ - INFO - [OK] Remetente configurado: gustavo.fc.cfc@gmail.com
+2025-10-11 20:42:37,596 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-11 20:43:18,664 - __main__ - INFO - [FILE] Arquivo selecionado: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-11 20:43:18,664 - __main__ - DEBUG - [OK] Formato de arquivo valido: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-11 20:43:18,665 - __main__ - DEBUG - [PROCESS] Processando arquivo com EmailService...
+2025-10-11 20:43:18,665 - core.email_service - INFO - [FILE] Processando arquivo: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-11 20:43:18,666 - core.email_service - DEBUG - [OK] EmailDAO criado
+2025-10-11 20:43:18,666 - dao.email_dao - INFO - [FILE] Lendo arquivo: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-11 20:43:18,667 - dao.email_dao - DEBUG - [EXCEL] Lendo arquivo Excel...
+2025-10-11 20:43:19,123 - dao.email_dao - DEBUG - [DATA] DataFrame criado com 4 linhas e 1 colunas
+2025-10-11 20:43:19,124 - dao.email_dao - DEBUG - [REGEX] Regex para emails: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+2025-10-11 20:43:19,124 - dao.email_dao - DEBUG - [PROCESS] Processando 1 colunas...
+2025-10-11 20:43:19,124 - dao.email_dao - DEBUG - [COLUMN] Processando coluna: TESTES
+2025-10-11 20:43:19,130 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'gustavo.fc.cfc@gmail.com...': ['gustavo.fc.cfc@gmail.com']
+2025-10-11 20:43:19,130 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'luis.herq19@gmail.com...': ['luis.herq19@gmail.com']
+2025-10-11 20:43:19,131 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'nathan.morilha@gmail.com...': ['nathan.morilha@gmail.com']
+2025-10-11 20:43:19,133 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'dep.eduardobolsonaro@camara.leg.br...': ['dep.eduardobolsonaro@camara.leg.br']
+2025-10-11 20:43:19,134 - dao.email_dao - INFO - [EMAIL] Total de emails unicos encontrados: 4
+2025-10-11 20:43:19,135 - dao.email_dao - DEBUG - [EMAIL] Emails: ['luis.herq19@gmail.com', 'dep.eduardobolsonaro@camara.leg.br', 'gustavo.fc.cfc@gmail.com', 'nathan.morilha@gmail.com']
+2025-10-11 20:43:19,136 - core.email_service - INFO - [EMAIL] 4 emails extraidos do arquivo
+2025-10-11 20:43:19,136 - core.email_service - DEBUG - [EMAIL] Emails encontrados: ['luis.herq19@gmail.com', 'dep.eduardobolsonaro@camara.leg.br', 'gustavo.fc.cfc@gmail.com', 'nathan.morilha@gmail.com']
+2025-10-11 20:43:19,137 - __main__ - INFO - [EMAIL] 4 emails encontrados no arquivo
+2025-10-11 20:43:19,138 - __main__ - INFO - [EMAIL] 4 novos emails adicionados
+2025-10-11 20:43:19,138 - __main__ - INFO - [TOTAL] Total de destinatarios: 4
+2025-10-11 20:44:55,272 - core.email_service - INFO - [CONFIG] Configurando remetente: gustavo.fc.cfc@gmail.com
+2025-10-11 20:44:55,272 - controller.email_controller - INFO - [INIT] Inicializando EmailController para: gustavo.fc.cfc@gmail.com
+2025-10-11 20:44:55,273 - controller.email_controller - DEBUG - [SMTP] Conectando ao servidor SMTP...
+2025-10-11 20:44:55,831 - controller.email_controller - DEBUG - [OK] Conexao SMTP estabelecida
+2025-10-11 20:44:55,832 - controller.email_controller - DEBUG - [AUTH] Fazendo login no servidor...
+2025-10-11 20:44:56,362 - controller.email_controller - INFO - [OK] Login SMTP realizado com sucesso
+2025-10-11 20:44:56,362 - core.email_service - INFO - [OK] Remetente configurado com sucesso
+2025-10-11 20:44:56,383 - __main__ - DEBUG - [EMAIL] EmailWorker criado para 4 destinatarios
+2025-10-11 20:44:56,383 - __main__ - DEBUG - [ANEXO] 1 anexo(s) incluidos
+2025-10-11 20:44:56,386 - __main__ - INFO - [ENVIO] Iniciando envio de emails para 4 destinatarios
+2025-10-11 20:44:56,387 - core.email_service - INFO - [EMAIL] Iniciando envio em massa para 4 destinatarios
+2025-10-11 20:44:56,387 - core.email_service - DEBUG - [EMAIL] Assunto: teste
+2025-10-11 20:44:56,387 - core.email_service - DEBUG - [EMAIL] Corpo: teste teste
+2025-10-11 20:44:56,387 - core.email_service - INFO - [ANEXO] 1 anexo(s) serão enviados
+2025-10-11 20:44:56,388 - core.email_service - DEBUG - [PROCESS] Chamando controller.sendMassEmails...
+2025-10-11 20:44:56,388 - controller.email_controller - INFO - [EMAIL] Iniciando envio em massa para 4 destinatarios
+2025-10-11 20:44:56,388 - controller.email_controller - DEBUG - [EMAIL] Assunto: teste
+2025-10-11 20:44:56,388 - controller.email_controller - INFO - [ANEXO] 1 anexo(s) serão enviados com cada email
+2025-10-11 20:44:56,389 - controller.email_controller - DEBUG - [EMAIL] Enviando email 1/4 para: luis.herq19@gmail.com
+2025-10-11 20:44:56,389 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: luis.herq19@gmail.com
+2025-10-11 20:44:56,390 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 20:44:56,392 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: luis.herq19@gmail.com
+2025-10-11 20:44:58,313 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: luis.herq19@gmail.com
+2025-10-11 20:44:58,313 - controller.email_controller - DEBUG - [OK] Email 1 enviado com sucesso
+2025-10-11 20:44:58,314 - controller.email_controller - DEBUG - [EMAIL] Enviando email 2/4 para: dep.eduardobolsonaro@camara.leg.br
+2025-10-11 20:44:58,314 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: dep.eduardobolsonaro@camara.leg.br
+2025-10-11 20:44:58,314 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 20:44:58,316 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: dep.eduardobolsonaro@camara.leg.br
+2025-10-11 20:45:00,074 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: dep.eduardobolsonaro@camara.leg.br
+2025-10-11 20:45:00,075 - controller.email_controller - DEBUG - [OK] Email 2 enviado com sucesso
+2025-10-11 20:45:00,075 - controller.email_controller - DEBUG - [EMAIL] Enviando email 3/4 para: gustavo.fc.cfc@gmail.com
+2025-10-11 20:45:00,075 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: gustavo.fc.cfc@gmail.com
+2025-10-11 20:45:00,075 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 20:45:00,077 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: gustavo.fc.cfc@gmail.com
+2025-10-11 20:45:02,331 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: gustavo.fc.cfc@gmail.com
+2025-10-11 20:45:02,332 - controller.email_controller - DEBUG - [OK] Email 3 enviado com sucesso
+2025-10-11 20:45:02,334 - controller.email_controller - DEBUG - [EMAIL] Enviando email 4/4 para: nathan.morilha@gmail.com
+2025-10-11 20:45:02,336 - controller.email_controller - DEBUG - [EMAIL] Criando EmailModel para: nathan.morilha@gmail.com
+2025-10-11 20:45:02,336 - controller.email_controller - DEBUG - [ANEXO] 1 anexo(s) a serem enviados
+2025-10-11 20:45:02,339 - controller.email_controller - DEBUG - [EMAIL] Enviando mensagem para: nathan.morilha@gmail.com
+2025-10-11 20:45:04,056 - controller.email_controller - DEBUG - [OK] Email enviado com sucesso para: nathan.morilha@gmail.com
+2025-10-11 20:45:04,056 - controller.email_controller - DEBUG - [OK] Email 4 enviado com sucesso
+2025-10-11 20:45:04,057 - controller.email_controller - INFO - [OK] Todos os emails foram enviados com sucesso
+2025-10-11 20:45:04,057 - core.email_service - INFO - [OK] Envio concluido: sucesso
+2025-10-11 20:45:04,057 - __main__ - INFO - [OK] Envio concluido com sucesso: Emails enviados com sucesso
+2025-10-11 20:46:05,660 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-11 20:46:07,373 - __main__ - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-11 20:49:12,512 - controller.email_controller - DEBUG - [SMTP] Fechando conexao SMTP...
+2025-10-11 20:49:12,711 - controller.email_controller - DEBUG - [OK] Conexao SMTP fechada
+2025-10-12 14:32:47,693 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 14:32:47,694 - gui.main_window - ERROR - [ERRO] Erro ao importar Ui_MainWindow: No module named 'ui_mainwindow'
+2025-10-12 14:33:11,190 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 14:33:11,236 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 14:33:14,770 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 14:33:14,772 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 14:33:14,773 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-12 14:33:14,850 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-12 14:33:14,851 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-12 14:33:14,851 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-12 14:33:14,851 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 14:33:14,855 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-12 14:33:14,910 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-12 14:33:14,910 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 14:33:14,910 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-12 14:33:14,910 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-12 14:33:14,911 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-12 14:33:14,912 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-12 14:33:14,912 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 14:33:14,912 - __main__ - INFO - [OK] Janela principal criada
+2025-10-12 14:33:14,912 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-12 14:33:15,018 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-12 14:33:28,924 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 14:33:30,320 - __main__ - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 14:33:31,516 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 14:33:33,336 - __main__ - DEBUG - [CANCEL] Importacao cancelada pelo usuario
+2025-10-12 14:33:54,061 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 14:34:00,256 - __main__ - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 14:40:43,242 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 14:40:44,463 - __main__ - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 14:42:04,492 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 14:42:06,657 - __main__ - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 14:42:12,484 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 14:42:13,872 - __main__ - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 14:42:46,554 - __main__ - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 14:44:43,574 - __main__ - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 15:05:28,329 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 15:05:28,344 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:05:28,992 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 15:05:28,994 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 15:06:17,515 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 15:06:17,529 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:06:18,188 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 15:06:18,190 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 15:06:41,320 - __main__ - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 15:06:41,335 - __main__ - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:06:41,984 - __main__ - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 15:06:41,986 - __main__ - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 15:06:41,986 - __main__ - INFO - [START] Iniciando aplicacao Email Sender...
+2025-10-12 15:06:42,029 - __main__ - DEBUG - [OK] QApplication criado
+2025-10-12 15:06:42,029 - __main__ - DEBUG - [OK] Configuracoes da aplicacao definidas
+2025-10-12 15:06:42,029 - __main__ - INFO - [UI] Criando janela principal...
+2025-10-12 15:06:42,030 - __main__ - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 15:06:42,031 - __main__ - DEBUG - [UI] Configurando interface UI...
+2025-10-12 15:06:42,049 - __main__ - DEBUG - [OK] Interface UI configurada
+2025-10-12 15:06:42,049 - __main__ - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 15:06:42,050 - __main__ - DEBUG - [OK] EmailService criado
+2025-10-12 15:06:42,050 - __main__ - DEBUG - [OK] Estado inicial configurado
+2025-10-12 15:06:42,050 - __main__ - DEBUG - [OK] Placeholders configurados
+2025-10-12 15:06:42,050 - __main__ - DEBUG - [OK] Sinais conectados
+2025-10-12 15:06:42,051 - __main__ - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 15:06:42,051 - __main__ - INFO - [OK] Janela principal criada
+2025-10-12 15:06:42,051 - __main__ - INFO - [UI] Exibindo janela...
+2025-10-12 15:06:42,170 - __main__ - INFO - [OK] Aplicacao iniciada com sucesso!
+2025-10-12 15:06:46,322 - __main__ - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 15:06:48,025 - __main__ - DEBUG - [CANCEL] Importacao cancelada pelo usuario
+2025-10-12 15:19:37,545 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 15:19:37,548 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:19:37,548 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:19:38,147 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 15:19:38,149 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 15:19:38,189 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 15:19:38,189 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 15:19:38,207 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 15:19:38,207 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 15:19:38,207 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 15:19:38,208 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 15:19:38,208 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 15:19:38,208 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 15:19:38,208 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 15:19:39,875 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 15:19:44,339 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 15:20:34,477 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 15:20:34,480 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:20:34,480 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:20:35,082 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 15:20:35,083 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 15:20:35,114 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 15:20:35,114 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 15:20:35,127 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 15:20:35,128 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 15:20:35,128 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 15:20:35,128 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 15:20:35,129 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 15:20:35,130 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 15:20:35,130 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 15:20:36,570 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 15:33:06,530 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 15:33:06,532 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:33:06,533 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 15:33:07,119 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 15:33:07,120 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 15:33:07,153 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 15:33:07,154 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 15:33:07,168 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 15:33:07,168 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 15:33:07,168 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 15:33:07,169 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 15:33:07,169 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 15:33:07,169 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 15:33:07,169 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 15:33:08,953 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 15:33:23,129 - gui.main_window - INFO - [OK] Remetente configurado: gustavo.fc.cfc@gmail.com
+2025-10-12 16:04:51,809 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:04:51,816 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:04:51,816 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:04:52,467 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:04:52,468 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:04:52,505 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:04:52,506 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:04:52,521 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:04:52,521 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:04:52,521 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:04:52,521 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:04:52,521 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:08:29,389 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:08:29,395 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:08:29,396 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:08:29,970 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:08:29,971 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:08:30,003 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:08:30,003 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:08:30,020 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:08:30,020 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:08:30,021 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:08:30,021 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:08:30,021 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:08:30,022 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 16:08:30,022 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 16:08:44,021 - gui.main_window - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 16:08:47,365 - gui.main_window - INFO - [FILE] Arquivo selecionado: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-12 16:08:47,365 - gui.main_window - DEBUG - [OK] Formato de arquivo valido: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-12 16:08:47,365 - gui.main_window - DEBUG - [PROCESS] Processando arquivo com EmailService...
+2025-10-12 16:08:47,365 - core.email_service - INFO - [FILE] Processando arquivo: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-12 16:08:47,366 - core.email_service - DEBUG - [OK] EmailDAO criado
+2025-10-12 16:08:47,366 - dao.email_dao - INFO - [FILE] Lendo arquivo: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-12 16:08:47,366 - dao.email_dao - DEBUG - [EXCEL] Lendo arquivo Excel...
+2025-10-12 16:08:47,968 - dao.email_dao - DEBUG - [DATA] DataFrame criado com 4 linhas e 1 colunas
+2025-10-12 16:08:47,968 - dao.email_dao - DEBUG - [REGEX] Regex para emails: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+2025-10-12 16:08:47,968 - dao.email_dao - DEBUG - [PROCESS] Processando 1 colunas...
+2025-10-12 16:08:47,969 - dao.email_dao - DEBUG - [COLUMN] Processando coluna: TESTES
+2025-10-12 16:08:47,972 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'gustavo.fc.cfc@gmail.com...': ['gustavo.fc.cfc@gmail.com']
+2025-10-12 16:08:47,972 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'luis.herq19@gmail.com...': ['luis.herq19@gmail.com']
+2025-10-12 16:08:47,973 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'nathan.morilha@gmail.com...': ['nathan.morilha@gmail.com']
+2025-10-12 16:08:47,973 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'dep.eduardobolsonaro@camara.leg.br...': ['dep.eduardobolsonaro@camara.leg.br']
+2025-10-12 16:08:47,973 - dao.email_dao - INFO - [EMAIL] Total de emails unicos encontrados: 4
+2025-10-12 16:08:47,973 - dao.email_dao - DEBUG - [EMAIL] Emails: ['luis.herq19@gmail.com', 'gustavo.fc.cfc@gmail.com', 'nathan.morilha@gmail.com', 'dep.eduardobolsonaro@camara.leg.br']
+2025-10-12 16:08:47,973 - core.email_service - INFO - [EMAIL] 4 emails extraidos do arquivo
+2025-10-12 16:08:47,973 - core.email_service - DEBUG - [EMAIL] Emails encontrados: ['luis.herq19@gmail.com', 'gustavo.fc.cfc@gmail.com', 'nathan.morilha@gmail.com', 'dep.eduardobolsonaro@camara.leg.br']
+2025-10-12 16:08:47,973 - gui.main_window - INFO - [EMAIL] 4 emails encontrados no arquivo
+2025-10-12 16:08:47,973 - gui.main_window - INFO - [EMAIL] 4 novos emails adicionados
+2025-10-12 16:08:47,973 - gui.main_window - INFO - [TOTAL] Total de destinatarios: 4
+2025-10-12 16:19:36,358 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:19:36,364 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:19:36,364 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:19:37,056 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:19:37,057 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:19:37,089 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:19:37,090 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:19:37,107 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:19:37,107 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:19:37,107 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:19:37,107 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:19:37,108 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:19:37,108 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 16:19:37,108 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 16:19:51,693 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 16:19:52,820 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 16:19:56,284 - gui.main_window - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 16:19:58,307 - gui.main_window - DEBUG - [CANCEL] Importacao cancelada pelo usuario
+2025-10-12 16:20:45,052 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:20:45,058 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:20:45,058 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:20:45,613 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:20:45,614 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:20:45,647 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:20:45,648 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:20:45,669 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:20:45,670 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:20:45,670 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:20:45,670 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:20:45,671 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:20:45,671 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 16:20:45,672 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 16:20:58,277 - gui.main_window - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 16:20:59,803 - gui.main_window - DEBUG - [CANCEL] Importacao cancelada pelo usuario
+2025-10-12 16:21:01,205 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 16:21:02,627 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 16:28:13,272 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:28:13,275 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:28:13,275 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:28:14,067 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:28:14,068 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:28:14,100 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:28:14,100 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:28:14,117 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:28:14,117 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:28:14,117 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:28:14,118 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:28:14,118 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:28:14,118 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 16:28:14,118 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 16:28:23,810 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:28:23,812 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:28:23,813 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:28:24,411 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:28:24,412 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:28:24,445 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:28:24,445 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:28:24,460 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:28:24,460 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:28:24,460 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:28:24,460 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:28:24,461 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:28:24,461 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 16:28:24,461 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 16:29:08,141 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:29:08,143 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:29:08,144 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:29:08,948 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:29:08,950 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:29:08,990 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:29:08,991 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:29:09,008 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:29:09,008 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:29:09,008 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:29:09,008 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:29:09,008 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:29:09,009 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 16:29:09,009 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 16:29:13,767 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:29:13,770 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:29:13,770 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:29:14,787 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:29:14,789 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:29:14,851 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:29:14,854 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:29:14,876 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:29:14,876 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:29:14,876 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:29:14,877 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:29:14,877 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:29:14,878 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 16:29:14,878 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 16:36:55,388 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 16:36:55,394 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:36:55,395 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 16:36:56,084 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 16:36:56,086 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 16:36:56,126 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 16:36:56,127 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 16:36:56,144 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 16:36:56,144 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 16:36:56,144 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 16:36:56,144 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 16:36:56,145 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 16:36:56,145 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 16:36:56,145 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 16:38:02,334 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 16:38:03,422 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 16:38:05,846 - gui.main_window - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 16:38:07,588 - gui.main_window - DEBUG - [CANCEL] Importacao cancelada pelo usuario
+2025-10-12 16:38:52,863 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 16:39:00,457 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 16:39:22,664 - gui.main_window - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 16:39:26,797 - gui.main_window - INFO - [FILE] Arquivo selecionado: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-12 16:39:26,798 - gui.main_window - DEBUG - [OK] Formato de arquivo valido: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-12 16:39:26,798 - gui.main_window - DEBUG - [PROCESS] Processando arquivo com EmailService...
+2025-10-12 16:39:26,798 - core.email_service - INFO - [FILE] Processando arquivo: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-12 16:39:26,798 - core.email_service - DEBUG - [OK] EmailDAO criado
+2025-10-12 16:39:26,798 - dao.email_dao - INFO - [FILE] Lendo arquivo: C:/Users/daisy/Downloads/Planilha sem título (2).xlsx
+2025-10-12 16:39:26,798 - dao.email_dao - DEBUG - [EXCEL] Lendo arquivo Excel...
+2025-10-12 16:39:27,122 - dao.email_dao - DEBUG - [DATA] DataFrame criado com 4 linhas e 1 colunas
+2025-10-12 16:39:27,122 - dao.email_dao - DEBUG - [REGEX] Regex para emails: \b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b
+2025-10-12 16:39:27,122 - dao.email_dao - DEBUG - [PROCESS] Processando 1 colunas...
+2025-10-12 16:39:27,123 - dao.email_dao - DEBUG - [COLUMN] Processando coluna: TESTES
+2025-10-12 16:39:27,123 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'gustavo.fc.cfc@gmail.com...': ['gustavo.fc.cfc@gmail.com']
+2025-10-12 16:39:27,124 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'luis.herq19@gmail.com...': ['luis.herq19@gmail.com']
+2025-10-12 16:39:27,124 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'nathan.morilha@gmail.com...': ['nathan.morilha@gmail.com']
+2025-10-12 16:39:27,124 - dao.email_dao - DEBUG - [EMAIL] Emails encontrados em 'dep.eduardobolsonaro@camara.leg.br...': ['dep.eduardobolsonaro@camara.leg.br']
+2025-10-12 16:39:27,124 - dao.email_dao - INFO - [EMAIL] Total de emails unicos encontrados: 4
+2025-10-12 16:39:27,125 - dao.email_dao - DEBUG - [EMAIL] Emails: ['nathan.morilha@gmail.com', 'gustavo.fc.cfc@gmail.com', 'luis.herq19@gmail.com', 'dep.eduardobolsonaro@camara.leg.br']
+2025-10-12 16:39:27,125 - core.email_service - INFO - [EMAIL] 4 emails extraidos do arquivo
+2025-10-12 16:39:27,125 - core.email_service - DEBUG - [EMAIL] Emails encontrados: ['nathan.morilha@gmail.com', 'gustavo.fc.cfc@gmail.com', 'luis.herq19@gmail.com', 'dep.eduardobolsonaro@camara.leg.br']
+2025-10-12 16:39:27,125 - gui.main_window - INFO - [EMAIL] 4 emails encontrados no arquivo
+2025-10-12 16:39:27,125 - gui.main_window - INFO - [EMAIL] 4 novos emails adicionados
+2025-10-12 16:39:27,125 - gui.main_window - INFO - [TOTAL] Total de destinatarios: 4
+2025-10-12 16:39:43,641 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 16:39:50,129 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 17:07:12,416 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 17:07:12,422 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 17:07:12,423 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 17:07:13,217 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 17:07:13,219 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 17:07:13,258 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 17:07:13,258 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 17:07:13,275 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 17:07:13,275 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 17:07:13,275 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 17:07:13,276 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 17:07:13,276 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 17:07:13,276 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 17:07:13,277 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 17:07:15,549 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 17:07:16,598 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 17:07:19,325 - gui.main_window - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 17:07:21,559 - gui.main_window - DEBUG - [CANCEL] Importacao cancelada pelo usuario
+2025-10-12 17:07:27,494 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 17:07:28,509 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 17:07:31,493 - gui.main_window - INFO - [IMPORT] Iniciando importacao de destinatarios...
+2025-10-12 17:07:33,358 - gui.main_window - DEBUG - [CANCEL] Importacao cancelada pelo usuario
+2025-10-12 17:18:50,360 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 17:18:50,367 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 17:18:50,367 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 17:18:51,123 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 17:18:51,124 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 17:18:51,163 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 17:18:51,164 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 17:18:51,180 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 17:18:51,180 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 17:18:51,180 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 17:18:51,181 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 17:18:51,182 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 17:18:51,183 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 17:18:51,183 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 17:18:53,246 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 17:18:54,079 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
+2025-10-12 17:19:17,719 - gui.main_window - DEBUG - Adicionado ao sys.path: c:\Users\daisy\OneDrive\Documentos\Rio Software\emailsender\email_sender
+2025-10-12 17:19:17,722 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 17:19:17,722 - gui.main_window - DEBUG - [OK] Importacao Ui_MainWindow bem-sucedida
+2025-10-12 17:19:18,361 - gui.main_window - DEBUG - [OK] Importacao EmailService bem-sucedida
+2025-10-12 17:19:18,363 - gui.main_window - DEBUG - [OK] Importacoes de utils bem-sucedidas
+2025-10-12 17:19:18,403 - gui.main_window - INFO - [INIT] Inicializando MainWindow...
+2025-10-12 17:19:18,404 - gui.main_window - DEBUG - [UI] Configurando interface UI...
+2025-10-12 17:19:18,420 - gui.main_window - DEBUG - [OK] Interface UI configurada
+2025-10-12 17:19:18,420 - gui.main_window - DEBUG - [EMAIL] Criando EmailService...
+2025-10-12 17:19:18,420 - gui.main_window - DEBUG - [OK] EmailService criado
+2025-10-12 17:19:18,421 - gui.main_window - DEBUG - [OK] Estado inicial configurado
+2025-10-12 17:19:18,421 - gui.main_window - DEBUG - [OK] Placeholders configurados
+2025-10-12 17:19:18,421 - gui.main_window - DEBUG - [OK] Sinais conectados
+2025-10-12 17:19:18,422 - gui.main_window - INFO - [OK] MainWindow inicializada com sucesso
+2025-10-12 17:19:20,055 - gui.main_window - INFO - [EMAIL] Iniciando configuracao de remetente...
+2025-10-12 17:19:24,353 - gui.main_window - DEBUG - [CANCEL] Configuracao de remetente cancelada pelo usuario
