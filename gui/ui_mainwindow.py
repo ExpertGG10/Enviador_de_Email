@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'widget bglh q o gustavo nao salvouPsuLRV.ui'
+## Form generated from reading UI file 'widget bglh q o gustavo nao salvouUslnjr.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -119,7 +119,7 @@ class Ui_MainWindow(object):
 "/* Barra de menu (QMenuBar) */\n"
 "QMenuBar {\n"
 "  background: #312783;\n"
-"  color: #ffffff;\n"
+"  color: #FFED00;\n"
 "  border-bottom: 1px solid #e5e7eb;\n"
 "}\n"
 "\n"
@@ -246,7 +246,12 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.widget)
 
-        self.texto = QWidget(self.centralwidget)
+        self.widget_5 = QWidget(self.centralwidget)
+        self.widget_5.setObjectName(u"widget_5")
+        self.verticalLayout_4 = QVBoxLayout(self.widget_5)
+        self.verticalLayout_4.setObjectName(u"verticalLayout_4")
+        self.verticalLayout_4.setContentsMargins(9, 9, 9, 9)
+        self.texto = QWidget(self.widget_5)
         self.texto.setObjectName(u"texto")
         sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy2.setHorizontalStretch(0)
@@ -263,7 +268,10 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.plainTextEdit)
 
 
-        self.verticalLayout_2.addWidget(self.texto)
+        self.verticalLayout_4.addWidget(self.texto)
+
+
+        self.verticalLayout_2.addWidget(self.widget_5)
 
         self.widget_2 = QWidget(self.centralwidget)
         self.widget_2.setObjectName(u"widget_2")
