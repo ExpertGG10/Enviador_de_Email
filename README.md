@@ -1,4 +1,4 @@
-# Email Sender - Rio Software
+# Enviador de Email Automático
 
 Uma aplicação moderna para envio de emails em massa com interface gráfica PySide6.
 
@@ -160,12 +160,14 @@ Este projeto está sob a licença MIT. Veja o arquivo `LICENSE` para mais detalh
 
 ## 👥 Autores
 
-- **Rio Software** - *Desenvolvimento inicial*
+- Gustavo Faria Cardoso
+- Luiz Henrique de Castro
 
 ## 📞 Suporte
 
-Para suporte, abra uma issue no GitHub ou entre em contato através do email: gustavo.fc.cfc@gmail.com
+Para suporte entre em contato através do telefone: 21 98203-3351
 
 ---
 
 **Email Sender** - Uma solução completa para envio de emails em massa com interface moderna e recursos avançados.
+
