@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'widget bglh q o gustavo nao salvouqIsoQb.ui'
+## Form generated from reading UI file 'widget bglh q o gustavo nao salvouPsuLRV.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -27,7 +27,7 @@ class Ui_MainWindow(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(380, 360)
         MainWindow.setMinimumSize(QSize(380, 360))
-        MainWindow.setMaximumSize(QSize(380, 360))
+        MainWindow.setMaximumSize(QSize(380, 431))
         MainWindow.setStyleSheet(u"/* Estilo simples e unificado para um app b\u00e1sico (MainWindow > QSS)\n"
 "   - Aplique classes via propriedade din\u00e2mica \"class\" no Qt Designer\n"
 "   - Classes dispon\u00edveis:\n"
@@ -38,7 +38,7 @@ class Ui_MainWindow(object):
 "\n"
 "/* Base global */\n"
 "QMainWindow, QWidget {\n"
-"  background: rgb(0, 0, 127);\n"
+"  background: #EAF6FE;\n"
 "  color: #1f2937;            /* cinza-900 */\n"
 "  font-family: \"Segoe UI\", \"Roboto\", \"Inter\", \"Noto Sans\", Arial, sans-serif;\n"
 "  font-size: 10pt;\n"
@@ -58,31 +58,9 @@ class Ui_MainWindow(object):
 "/* ---------------------------\n"
 "   Labels (QLabel)\n"
 "   --------------------------- */\n"
-"QLabel"
-                        " {\n"
-"  color: rgb(255, 255, 255); /* cinza-900 */\n"
-"}\n"
-"\n"
-"/* T\u00edtulo e varia\u00e7\u00f5es */\n"
-"QLabel[class=\"title\"] {\n"
-"  font-size: 16pt;\n"
-"  font-weight: 700;\n"
-"}\n"
-"QLabel[class=\"subtitle\"] {\n"
-"  font-size: 12pt;\n"
-"  font-weight: 600;\n"
-"  color: #374151; /* cinza-700 */\n"
-"}\n"
-"\n"
-"/* Texto auxiliar/menor */\n"
-"QLabel[class=\"caption\"] {\n"
-"  font-size: 9pt;\n"
-"  color: #6b7280; /* cinza-500 */\n"
-"}\n"
-"\n"
-"/* Texto suavizado */\n"
-"QLabel[class=\"muted\"] {\n"
-"  color: #6b7280; /* cinza-500 */\n"
+"QLabel {\n"
+""
+                        "  color: #312783; /* cinza-900 */\n"
 "}\n"
 "\n"
 "/* ---------------------------\n"
@@ -91,54 +69,20 @@ class Ui_MainWindow(object):
 "QLineEdit,\n"
 "QTextEdit,\n"
 "QPlainTextEdit {\n"
-"  background: rgb(255, 255, 255);\n"
+"  background: #ffffff;\n"
 "  color: #111827;\n"
-"  border: 1px solid #d1d5db;    /* cinza-300 */\n"
+"  border: 1px solid rgb(0,0,63);  \n"
 "  border-radius: 6px;\n"
 "  padding: 6px 8px;\n"
 "}\n"
 "\n"
-"QLineEdit:focus,\n"
-"QTextEdit:focus,\n"
-"QPlainTextEdit:focus {\n"
-"  border: 1px solid #2563eb;    /* foco azul"
-                        " */\n"
-"  background: #ffffff;\n"
-"}\n"
-"\n"
-"/* Desabilitado */\n"
-"QLineEdit:disabled,\n"
-"QTextEdit:disabled,\n"
-"QPlainTextEdit:disabled {\n"
-"  color: #9ca3af;\n"
-"  background: #f3f4f6;          /* cinza-100 */\n"
-"  border-color: #e5e7eb;         /* cinza-200 */\n"
-"}\n"
-"\n"
-"/* Estados via \"class\" */\n"
-"QLineEdit[class=\"error\"],\n"
-"QTextEdit[class=\"error\"],\n"
-"QPlainTextEdit[class=\"error\"] {\n"
-"  border-color: #dc2626;         /* vermelho-600 */\n"
-"  background: #fef2f2;           /* vermelho-50 */\n"
-"  color: #7f1d1d;\n"
-"}\n"
-"\n"
-"QLineEdit[class=\"success\"],\n"
-"QTextEdit[class=\"success\"],\n"
-"QPlainTextEdit[class=\"success\"] {\n"
-"  border-color: #16a34a;         /* verde-600 */\n"
-"  background: #f0fdf4;           /* verde-50 */\n"
-"  color: #14532d;\n"
-"}\n"
 "\n"
 "/* ---------------------------\n"
 "   Bot\u00f5es (QPushButton)\n"
 "   --------------------------- */\n"
 "QPushButton {\n"
-"  background: #e5e7eb;           /* cinza-200 */\n"
-"  color: #111827;                /* cin"
-                        "za-900 */\n"
+"  background: #312783;           /* cinza-200 */\n"
+"  color: #f0f0f0;                /* cinza-900 */\n"
 "  border: 1px solid #d1d5db;     /* cinza-300 */\n"
 "  border-radius: 6px;\n"
 "  padding: 6px 12px;\n"
@@ -146,110 +90,36 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QPushButton:hover {\n"
-"  background: #dbe1e6;           /* leve escurecido */\n"
+"  background: #2563fb;           /* leve escurecido */\n"
 "}\n"
 "\n"
 "QPushButton:pressed {\n"
-"  background: #cfd6dc;\n"
+"  background: #4583fb;\n"
 "}\n"
 "\n"
 "QPushButton:disabled {\n"
 "  background: #f3f4f6;           /* cinza-100 */\n"
-"  color: #9ca3af;                /* cinza-400 */\n"
+"  color: #9ca3af;                /* ci"
+                        "nza-400 */\n"
 "  border-color: #e5e7eb;         /* cinza-200 */\n"
-"}\n"
-"\n"
-"/* Bot\u00e3o prim\u00e1rio */\n"
-"QPushButton[class=\"primary\"] {\n"
-"  background: #2563eb;           /* azul-600 */\n"
-"  color: #ffffff;\n"
-"  border-color: #1d4ed8;         /* azul-700 */\n"
-"}\n"
-"QPushButton[class=\"primary\"]:hover {\n"
-"  background: #1e53c7;           /* hover */\n"
-"  border-color: #1b47b1;\n"
-"}\n"
-"QPushButton[class=\"primary\"]:pressed {\n"
-"  background: #1b47b1;           /* pressed */\n"
-"}\n"
-"QPushButton[class=\"primary\"]:disabled {\n"
-"  background: #93c5fd;           /* az"
-                        "ul-300 */\n"
-"  color: #e5e7eb;\n"
-"  border-color: #93c5fd;\n"
-"}\n"
-"\n"
-"/* Bot\u00e3o secund\u00e1rio */\n"
-"QPushButton[class=\"secondary\"] {\n"
-"  background: #f3f4f6;           /* cinza-100 */\n"
-"  color: #111827;\n"
-"  border-color: #d1d5db;         /* cinza-300 */\n"
-"}\n"
-"QPushButton[class=\"secondary\"]:hover {\n"
-"  background: #e5e7eb;           /* cinza-200 */\n"
-"}\n"
-"QPushButton[class=\"secondary\"]:pressed {\n"
-"  background: #d1d5db;           /* cinza-300 */\n"
-"}\n"
-"\n"
-"/* Bot\u00e3o de perigo (ex.: Excluir) */\n"
-"QPushButton[class=\"danger\"] {\n"
-"  background: #dc2626;           /* vermelho-600 */\n"
-"  color: #ffffff;\n"
-"  border-color: #b91c1c;         /* vermelho-700 */\n"
-"}\n"
-"QPushButton[class=\"danger\"]:hover {\n"
-"  background: #b91c1c;\n"
-"}\n"
-"QPushButton[class=\"danger\"]:pressed {\n"
-"  background: #991b1b;\n"
-"}\n"
-"\n"
-"/* Bot\u00e3o \"text\" (sem preenchimento, estilo link) */\n"
-"QPushButton[class=\"text\"] {\n"
-"  background: transparent;\n"
-"  color: #2563eb;"
-                        "                /* azul-600 */\n"
-"  border-color: transparent;\n"
-"}\n"
-"QPushButton[class=\"text\"]:hover {\n"
-"  background: #eff6ff;           /* azul-50 */\n"
-"}\n"
-"QPushButton[class=\"text\"]:pressed {\n"
-"  background: #dbeafe;           /* azul-100 */\n"
 "}\n"
 "\n"
 "/* ---------------------------\n"
 "   Pequenos ajustes de cont\u00eainer\n"
 "   --------------------------- */\n"
 "\n"
-"/* QGroupBox simples */\n"
-"QGroupBox {\n"
-"  border: 1px solid #e5e7eb;     /* cinza-200 */\n"
-"  border-radius: 8px;\n"
-"  margin-top: 12px;\n"
-"}\n"
-"QGroupBox::title {\n"
-"  subcontrol-origin: margin;\n"
-"  left: 8px;\n"
-"  padding: 0 4px;\n"
-"  color: #374151;                /* cinza-700 */\n"
-"  font-weight: 600;\n"
-"}\n"
-"\n"
 "/* Barra de status (se houver) */\n"
 "QStatusBar {\n"
-"  background: rgb(0, 0, 63);           /* cinza-50 */\n"
+"  background: #312783;           /* cinza-50 */\n"
 "  color: #f0f0f0;                /* cinza-700 */\n"
 "  border-top: 1px solid #e5e7eb; /* cinza-200 */\n"
 "  padding: 3px 6px;\n"
 "}\n"
 "\n"
 "/* Barra de menu (QMenuBar) */\n"
-"QMen"
-                        "uBar {\n"
-"  background: rgb(0, 0, 63);\n"
-"  color: #ffff00;\n"
+"QMenuBar {\n"
+"  background: #312783;\n"
+"  color: #ffffff;\n"
 "  border-bottom: 1px solid #e5e7eb;\n"
 "}\n"
 "\n"
@@ -260,21 +130,22 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QMenuBar::item:selected {\n"
-" background: #2563eb;\n"
+" background: #2563fb;\n"
 "  color: #ffffff;\n"
 "}\n"
 "\n"
 "QMenuBar::item:pressed  { \n"
-"background: #2563eb;\n"
+"background: #2563fb;\n"
 "  color: #ffffff;\n"
 "}\n"
 "\n"
 "/* Menu popup (QMenu) */\n"
 "QMenu {\n"
-"  background: rgb(0, 0, 63);\n"
+"  background: #312783;\n"
 "  color: rgb(255, 255, 0);\n"
 "  border: 1px solid #e5e7eb;\n"
-"  padding: 4px 0;\n"
+"  pad"
+                        "ding: 4px 0;\n"
 "}\n"
 "\n"
 "QMenu::item {\n"
@@ -283,7 +154,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QMenu::item:selected {\n"
-"  background: #2563eb;\n"
+"  background: #2563fb;\n"
 "  color: #ffffff;\n"
 "}\n"
 "\n"
@@ -303,8 +174,7 @@ class Ui_MainWindow(object):
 "  padding: 0;\n"
 "}\n"
 "\n"
-""
-                        "/* Fontes */\n"
+"/* Fontes */\n"
 "QPushButton,\n"
 "QToolButton,\n"
 "QTabBar::tab,\n"
@@ -313,16 +183,18 @@ class Ui_MainWindow(object):
 "	font: 600 10pt \"Tahoma\";\n"
 "}\n"
 "\n"
-"QLineEdit,\n"
-"QComboBox,\n"
-"QTextEdit,\n"
-"QPlainTextEdit {\n"
-"\n"
-"}\n"
-"\n"
 "QLabel {\n"
 "	font: 700 9pt \"Tahoma\";\n"
-"}")
+"}\n"
+"\n"
+"#texto{\n"
+"background: #ffffff;\n"
+"  color: #111827;\n"
+"  border: 1px solid rgb(0,0,63);  \n"
+"  border-radius: 6px;\n"
+"  padding: 6px 8px;\n"
+"}\n"
+"")
         self.actionEscrever_manualmente = QAction(MainWindow)
         self.actionEscrever_manualmente.setObjectName(u"actionEscrever_manualmente")
         self.action_csv = QAction(MainWindow)
@@ -359,34 +231,47 @@ class Ui_MainWindow(object):
 
         self.widget = QWidget(self.centralwidget)
         self.widget.setObjectName(u"widget")
-        self.horizontalLayout = QHBoxLayout(self.widget)
-        self.horizontalLayout.setObjectName(u"horizontalLayout")
+        self.verticalLayout_3 = QVBoxLayout(self.widget)
+        self.verticalLayout_3.setObjectName(u"verticalLayout_3")
         self.lineEdit = QLineEdit(self.widget)
         self.lineEdit.setObjectName(u"lineEdit")
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
+        sizePolicy1.setHorizontalStretch(0)
+        sizePolicy1.setVerticalStretch(0)
+        sizePolicy1.setHeightForWidth(self.lineEdit.sizePolicy().hasHeightForWidth())
+        self.lineEdit.setSizePolicy(sizePolicy1)
 
-        self.horizontalLayout.addWidget(self.lineEdit)
+        self.verticalLayout_3.addWidget(self.lineEdit)
 
 
         self.verticalLayout_2.addWidget(self.widget)
 
-        self.plainTextEdit = QPlainTextEdit(self.centralwidget)
+        self.texto = QWidget(self.centralwidget)
+        self.texto.setObjectName(u"texto")
+        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
+        sizePolicy2.setHorizontalStretch(0)
+        sizePolicy2.setVerticalStretch(0)
+        sizePolicy2.setHeightForWidth(self.texto.sizePolicy().hasHeightForWidth())
+        self.texto.setSizePolicy(sizePolicy2)
+        self.texto.setStyleSheet(u"")
+        self.verticalLayout = QVBoxLayout(self.texto)
+        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout.setContentsMargins(2, 2, 2, 2)
+        self.plainTextEdit = QPlainTextEdit(self.texto)
         self.plainTextEdit.setObjectName(u"plainTextEdit")
-        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
-        sizePolicy1.setHorizontalStretch(0)
-        sizePolicy1.setVerticalStretch(0)
-        sizePolicy1.setHeightForWidth(self.plainTextEdit.sizePolicy().hasHeightForWidth())
-        self.plainTextEdit.setSizePolicy(sizePolicy1)
-        self.plainTextEdit.setMaximumSize(QSize(16777215, 110))
 
-        self.verticalLayout_2.addWidget(self.plainTextEdit)
+        self.verticalLayout.addWidget(self.plainTextEdit)
+
+
+        self.verticalLayout_2.addWidget(self.texto)
 
         self.widget_2 = QWidget(self.centralwidget)
         self.widget_2.setObjectName(u"widget_2")
-        sizePolicy2 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
-        sizePolicy2.setHorizontalStretch(0)
-        sizePolicy2.setVerticalStretch(0)
-        sizePolicy2.setHeightForWidth(self.widget_2.sizePolicy().hasHeightForWidth())
-        self.widget_2.setSizePolicy(sizePolicy2)
+        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Preferred)
+        sizePolicy3.setHorizontalStretch(0)
+        sizePolicy3.setVerticalStretch(0)
+        sizePolicy3.setHeightForWidth(self.widget_2.sizePolicy().hasHeightForWidth())
+        self.widget_2.setSizePolicy(sizePolicy3)
         self.horizontalLayout_2 = QHBoxLayout(self.widget_2)
         self.horizontalLayout_2.setObjectName(u"horizontalLayout_2")
         self.pushButton = QPushButton(self.widget_2)
@@ -406,11 +291,11 @@ class Ui_MainWindow(object):
 
         self.widget_3 = QWidget(self.widget_2)
         self.widget_3.setObjectName(u"widget_3")
-        sizePolicy3 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
-        sizePolicy3.setHorizontalStretch(0)
-        sizePolicy3.setVerticalStretch(0)
-        sizePolicy3.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
-        self.widget_3.setSizePolicy(sizePolicy3)
+        sizePolicy4 = QSizePolicy(QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Minimum)
+        sizePolicy4.setHorizontalStretch(0)
+        sizePolicy4.setVerticalStretch(0)
+        sizePolicy4.setHeightForWidth(self.widget_3.sizePolicy().hasHeightForWidth())
+        self.widget_3.setSizePolicy(sizePolicy4)
         self.horizontalLayout_3 = QHBoxLayout(self.widget_3)
         self.horizontalLayout_3.setObjectName(u"horizontalLayout_3")
         self.horizontalLayout_3.setContentsMargins(0, 0, 0, 0)
