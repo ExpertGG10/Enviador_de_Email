@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'widget bglh q o gustavo nao salvouUslnjr.ui'
+## Form generated from reading UI file 'widget bglh q o gustavo nao salvouXoGEwA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 6.10.0
 ##
@@ -17,8 +17,8 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
 from PySide6.QtWidgets import (QApplication, QHBoxLayout, QLabel, QLineEdit,
-    QMainWindow, QMenu, QMenuBar, QPlainTextEdit,
-    QPushButton, QSizePolicy, QStatusBar, QVBoxLayout,
+    QMainWindow, QMenu, QMenuBar, QPushButton,
+    QSizePolicy, QStatusBar, QTextEdit, QVBoxLayout,
     QWidget)
 
 class Ui_MainWindow(object):
@@ -262,10 +262,10 @@ class Ui_MainWindow(object):
         self.verticalLayout = QVBoxLayout(self.texto)
         self.verticalLayout.setObjectName(u"verticalLayout")
         self.verticalLayout.setContentsMargins(2, 2, 2, 2)
-        self.plainTextEdit = QPlainTextEdit(self.texto)
-        self.plainTextEdit.setObjectName(u"plainTextEdit")
+        self.textEdit = QTextEdit(self.texto)
+        self.textEdit.setObjectName(u"textEdit")
 
-        self.verticalLayout.addWidget(self.plainTextEdit)
+        self.verticalLayout.addWidget(self.textEdit)
 
 
         self.verticalLayout_4.addWidget(self.texto)

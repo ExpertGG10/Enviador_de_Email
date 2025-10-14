@@ -124,7 +124,7 @@ class MainWindow(QMainWindow):
 
         # Configurar placeholders
         self.ui.lineEdit.setPlaceholderText("Digite o assunto do e-mail")
-        self.ui.plainTextEdit.setPlaceholderText("Digite a mensagem do e-mail...")
+        self.ui.textEdit.setPlaceholderText("Digite a mensagem do e-mail...")
         logger.debug("[OK] Placeholders configurados")
 
         # Conectar sinais
@@ -159,7 +159,7 @@ class MainWindow(QMainWindow):
     # ----------------------------
     def on_informacoes_clicked(self):
         assunto = (self.ui.lineEdit.text() or "").strip()
-        corpo = (self.ui.plainTextEdit.toPlainText() or "").strip()
+        corpo = (self.ui.textEdit.toHtml() or "").strip()
 
         anexos_info = ""
         if self.anexos:
@@ -189,7 +189,7 @@ class MainWindow(QMainWindow):
         """Envia emails usando o serviço de email."""
         # Validar dados
         assunto = (self.ui.lineEdit.text() or "").strip()
-        corpo = (self.ui.plainTextEdit.toPlainText() or "").strip()
+        corpo = (self.ui.textEdit.toHtml() or "").strip()
         
         # Validar campos obrigatórios
         errors = validate_required_fields(self.remetente, self.destinatarios, assunto, corpo)

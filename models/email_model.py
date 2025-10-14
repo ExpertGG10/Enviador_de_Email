@@ -35,8 +35,10 @@ class EmailModel:
             msg['From'] = self.senderAddress
             msg['To'] = self.recipientAddress
             
+            corpo = MIMEText(self.body, 'html')
+            print(corpo)
             # Adicionar corpo do email
-            msg.attach(MIMEText(self.body, 'plain', 'utf-8'))
+            msg.attach(corpo)
             
             # Adicionar anexos
             for attachment_path in self.attachments:
