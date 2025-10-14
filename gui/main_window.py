@@ -158,8 +158,6 @@ class MainWindow(QMainWindow):
     # Placeholders dos botões
     # ----------------------------
     def on_informacoes_clicked(self):
-        assunto = (self.ui.lineEdit.text() or "").strip()
-        corpo = (self.ui.textEdit.toHtml() or "").strip()
 
         anexos_info = ""
         if self.anexos:
@@ -167,15 +165,14 @@ class MainWindow(QMainWindow):
             if len(self.anexos) > 5:
                 anexos_info += f"\n... e mais {len(self.anexos) - 5} arquivo(s)"
 
-        info = (
-            f"Remetente: {self.remetente or '(não definido)'}\n"
-            f"Destinatários: {', '.join(self.destinatarios) if self.destinatarios else '(nenhum)'}\n"
-            f"Assunto: {assunto or '(vazio)'}\n"
-            f"Tamanho da mensagem: {len(corpo)} caracteres\n"
-            f"Anexos: {len(self.anexos)} arquivo(s){anexos_info}"
-        )
+        info = ( """Como gerar a Senha de Aplicativo no Gmail:
 
-        QMessageBox.information(self, "Informações do E-mail", info)
+     1.  Acesse sua Conta Google, 
+     2.  Vá em Segurança e ative a Verificação em Duas Etapas.
+     2.  Na mesma tela de Segurança, vá em "Senhas de app".
+     3.  Gere uma nova senha e copie o código gerado""")
+
+        QMessageBox.information(self, "Senha App", info)
 
     def on_anexo_clicked(self):
         arquivos, _ = QFileDialog.getOpenFileNames(self, "Selecionar arquivos para anexar")
