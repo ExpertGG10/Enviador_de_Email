@@ -8,6 +8,8 @@ from PySide6.QtWidgets import (
 from PySide6.QtCore import QThread, Signal, Qt
 
 from gui.dialogs.ui_adicionar_remetente import Ui_Dialog_Adicionar_Remetente
+from gui.dialogs.manage_senders import ManageSendersDialog
+from gui.dialogs.manage_groups import ManageGroupsDialog
 
 # Configurar logging para debug
 logging.basicConfig(
@@ -143,8 +145,8 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_3.clicked.connect(self.on_enviar_clicked)           # "Enviar"
 
         # Ações de menu
-        self.ui.actionRemetente.triggered.connect(self.on_adicionar_remetente_triggered)
-        self.ui.actionDestinatario.triggered.connect(self.on_importar_csv_triggered)
+        self.ui.actionRemetente.triggered.connect(self.on_manage_remetentes_triggered)
+        self.ui.actionDestinatario.triggered.connect(self.on_manage_destinatarios_triggered)
     
     def _setup_initial_ui(self):
         """Configuração inicial da interface."""
@@ -296,14 +298,63 @@ class MainWindow(QMainWindow):
         except Exception:
             pass
 
-        QMessageBox.information(self, "Remetente", "Remetente configurado com sucesso.")
+    def on_manage_remetentes_triggered(self):
+        dlg = ManageSendersDialog(self.email_service, parent=self)
+        if dlg.exec_() == QDialog.DialogCode.Accepted:
+            sel = getattr(dlg, 'selected_sender', None)
+            pwd = getattr(dlg, 'selected_password', None)
+            if sel:
+                self.remetente = sel
+                self.remetente_password = pwd
+                try:
+                    self.email_service.add_sender(self.remetente, self.remetente_password)
+                except Exception as e:
+                    logger.warning(f"[WARN] Nao foi possivel persistir remetente: {e}")
+                # habilitar envio se houver destinatarios
+                if self.destinatarios:
+                    try:
+                        self.ui.pushButton_3.setEnabled(True)
+                    except Exception:
+                        pass
+                # mostrar remetente na barra de status
+                try:
+                    self.statusBar().showMessage(f"Remetente: {self.remetente}")
+                except Exception:
+                    pass
+
+    def on_manage_destinatarios_triggered(self):
+        dlg = ManageGroupsDialog(self.email_service, parent=self)
+        if dlg.exec_() == QDialog.DialogCode.Accepted:
+            emails = getattr(dlg, 'selected_group_emails', None)
+            if emails:
+                novos = [e for e in emails if e not in self.destinatarios]
+                self.destinatarios.extend(novos)
+                for e in novos:
+                    try:
+                        self.email_service.add_recipient(e)
+                    except Exception as err:
+                        logger.warning(f"[WARN] Falha ao persistir {e}: {err}")
+                self.statusBar().showMessage(f"{len(self.destinatarios)} destinatários carregados")
+                QMessageBox.information(self, "Destinatários", f"{len(novos)} destinatário(s) adicionados do grupo.")
+                # habilitar envio se houver remetente
+                if self.remetente:
+                    try:
+                        self.ui.pushButton_3.setEnabled(True)
+                    except Exception:
+                        pass
 
   
     def on_escrever_manual_triggered(self):
         email, ok = QInputDialog.getText(self, "Adicionar Destinatário", "E-mail do destinatário:")
         if ok and email.strip():
-            self.destinatarios.append(email.strip())
-            self.statusBar().showMessage(f"Destinatário adicionado: {email.strip()}", 3000)
+            address = email.strip()
+            self.destinatarios.append(address)
+            # Persistir destinatário
+            try:
+                self.email_service.add_recipient(address)
+            except Exception as e:
+                logger.warning(f"[WARN] Nao foi possivel persistir destinatario: {e}")
+            self.statusBar().showMessage(f"Destinatário adicionado: {address}", 3000)
         elif ok:
             QMessageBox.information(self, "Destinatários", "Nenhum e-mail informado.")
 
@@ -339,7 +390,7 @@ class MainWindow(QMainWindow):
             emails = self.email_service.process_recipient_file(caminho)
             logger.info(f"[EMAIL] {len(emails)} emails encontrados no arquivo")
             
-            # Adicionar emails únicos (evitar duplicatas)
+            # Adicionar emails únicos (evitar duplicatas) e persisti-los
             novos_emails = []
             for email in emails:
                 if email not in self.destinatarios:
@@ -359,6 +410,12 @@ class MainWindow(QMainWindow):
                     f"{'...' if len(novos_emails) > 5 else ''}"
                 )
                 self.statusBar().showMessage(f"{len(self.destinatarios)} destinatarios carregados")
+                # Persistir novos emails no DAO
+                for e in novos_emails:
+                    try:
+                        self.email_service.add_recipient(e)
+                    except Exception as err:
+                        logger.warning(f"[WARN] Falha ao persistir {e}: {err}")
             else:
                 logger.info("[INFO] Nenhum email novo encontrado")
                 QMessageBox.information(
