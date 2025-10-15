@@ -1,0 +1,25 @@
+{
+    "next_id": 3,
+    "groups": [
+        {
+            "id": 1,
+            "name": "oi",
+            "recipients": [
+                4,
+                1,
+                2,
+                3,
+                5
+            ]
+        },
+        {
+            "id": 2,
+            "name": "dsagfsdgfd",
+            "recipients": [
+                1,
+                2,
+                6
+            ]
+        }
+    ]
+}
