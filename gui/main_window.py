@@ -2,14 +2,18 @@ import sys
 import os
 import csv
 import logging
+
 from PySide6.QtWidgets import (
     QApplication, QMainWindow, QFileDialog, QMessageBox, QInputDialog, QProgressDialog, QLineEdit, QDialog
 )
 from PySide6.QtCore import QThread, Signal, Qt
+from PySide6.QtGui import QIcon
 
 from gui.dialogs.ui_adicionar_remetente import Ui_Dialog_Adicionar_Remetente
 from gui.dialogs.manage_senders import ManageSendersDialog
 from gui.dialogs.manage_groups import ManageGroupsDialog
+
+from utils.util_arquivos import obterCaminhoBase, juntarCaminhos, checarArquivoExiste
 
 # Configurar logging para debug
 logging.basicConfig(
@@ -24,8 +28,28 @@ logger = logging.getLogger(__name__)
 
 # Configurar encoding para Windows
 import io
-sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
-sys.stderr = io.TextIOWrapper(sys.stderr.buffer, encoding='utf-8')
+def _safe_wrap_stream(stream):
+    """Return a UTF-8 text wrapper for the given stream or a harmless fallback.
+
+    In frozen GUI apps (PyInstaller) sys.stdout/sys.stderr may be None, or
+    may lack a .buffer attribute. This helper avoids AttributeError by
+    falling back to an in-memory StringIO when necessary.
+    """
+    try:
+        if stream is None:
+            return io.StringIO()
+        buf = getattr(stream, 'buffer', None)
+        if buf is not None:
+            return io.TextIOWrapper(buf, encoding='utf-8')
+    except Exception:
+        # If anything goes wrong, quietly return the original stream
+        pass
+    return stream
+
+
+# Replace stdout/stderr with safe wrappers (no-op when not needed)
+sys.stdout = _safe_wrap_stream(sys.stdout)
+sys.stderr = _safe_wrap_stream(sys.stderr)
 
 # Adicionar o diretório raiz ao path para importações
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
@@ -82,22 +106,57 @@ class EmailWorker(QThread):
         self.subject = subject
         self.body = body
         self.attachments = attachments or []
+        self._cancel_requested = False
         logger.debug(f"[EMAIL] EmailWorker criado para {len(recipients)} destinatarios")
         if self.attachments:
             logger.debug(f"[ANEXO] {len(self.attachments)} anexo(s) incluidos")
     
     def run(self):
         logger.info(f"[ENVIO] Iniciando envio de emails para {len(self.recipients)} destinatarios")
+        success_count = 0
+        failed_count = 0
         try:
-            result = self.service.send_bulk_emails(self.recipients, self.subject, self.body, self.attachments)
-            logger.info(f"[OK] Envio concluido com sucesso: {result['message']}")
-            self.finished.emit(True, result['message'])
+            # Use controller.sendEmail per recipient so we can emit progress
+            for idx, recipient in enumerate(self.recipients, start=1):
+                if self._cancel_requested:
+                    logger.info("[ENVIO] Cancelamento solicitado pelo usuário")
+                    self.finished.emit(False, "Cancelado pelo usuário")
+                    return
+                try:
+                    if not self.service.controller:
+                        raise EmailServiceError("Remetente não configurado")
+                    # send single email
+                    self.service.controller.sendEmail(recipient, self.subject, self.body, self.attachments)
+                    success_count += 1
+                    logger.debug(f"[OK] Email enviado para {recipient} ({idx}/{len(self.recipients)})")
+                except Exception as e:
+                    failed_count += 1
+                    logger.error(f"[ERRO] Falha ao enviar para {recipient}: {e}")
+                # emit progress (use idx so progress dialog shows sent count)
+                try:
+                    self.progress.emit(idx)
+                except Exception:
+                    # ignore signal emission errors
+                    pass
+
+            if failed_count == 0:
+                msg = 'Emails enviados com sucesso'
+                logger.info(f"[OK] Envio concluido com sucesso: {msg}")
+                self.finished.emit(True, msg)
+            else:
+                msg = f'{success_count} enviados, {failed_count} falharam'
+                logger.warning(f"[WARN] Envio concluido com resultados: {msg}")
+                self.finished.emit(False, msg)
         except EmailServiceError as e:
             logger.error(f"[ERRO] Erro no envio de emails: {e}")
             self.finished.emit(False, str(e))
         except Exception as e:
             logger.error(f"[ERRO] Erro inesperado no envio: {e}")
             self.finished.emit(False, f"Erro inesperado: {e}")
+
+    def request_cancel(self):
+        """Solicita que o worker cancele o envio entre mensagens."""
+        self._cancel_requested = True
 
 
 class MainWindow(QMainWindow):
@@ -216,32 +275,83 @@ class MainWindow(QMainWindow):
             except EmailServiceError as e:
                 QMessageBox.critical(self, "Erro de Configuração", str(e))
                 return
-        
-        # Criar e configurar diálogo de progresso
-        self.progress_dialog = QProgressDialog("Enviando emails...", "Cancelar", 0, len(self.destinatarios), self)
+
+        # Criar diálogo de progresso com contagem por destinatário (sempre criado quando iniciar envio)
+        total = len(self.destinatarios)
+        # garantir que existe um dialogo anterior fechado
+        try:
+            if hasattr(self, 'progress_dialog') and self.progress_dialog is not None:
+                try:
+                    self.progress_dialog.close()
+                except Exception:
+                    pass
+
+        except Exception:
+            pass
+
+        self.progress_dialog = QProgressDialog("Enviando emails...", "Cancelar", 0, total, self)
         self.progress_dialog.setWindowModality(Qt.WindowModality.WindowModal)
+        self.progress_dialog.setAutoClose(False)
+        self.progress_dialog.setValue(0)
+        self.progress_dialog.setMinimumDuration(200)
         self.progress_dialog.show()
-        
-        # Criar worker thread
+
+        # Criar worker thread (somente uma vez)
         self.email_worker = EmailWorker(self.email_service, self.destinatarios, assunto, corpo, self.anexos)
+        # atualizar barra a cada progresso
+        try:
+            self.email_worker.progress.connect(lambda v: self.progress_dialog.setValue(v))
+            # ligar cancelamento do diálogo ao worker
+            self.progress_dialog.canceled.connect(lambda: self.email_worker.request_cancel())
+        except Exception:
+            logger.exception("Falha ao conectar sinais de progresso/cancelamento")
+
+        # Conectar finalizacao
         self.email_worker.finished.connect(self.on_email_sent)
-        self.email_worker.start()
-        
         # Desabilitar botão durante envio
         self.ui.pushButton_3.setEnabled(False)
         self.statusBar().showMessage("Enviando emails...")
+        # Iniciar o worker
+        self.email_worker.start()
     
     def on_email_sent(self, success, message):
         """Callback chamado quando envio de email termina."""
-        self.progress_dialog.close()
-        self.ui.pushButton_3.setEnabled(True)
-        
+        # Fechar diálogo de progresso se existir
+        try:
+            if hasattr(self, 'progress_dialog') and self.progress_dialog is not None:
+                try:
+                    self.progress_dialog.close()
+                except Exception:
+                    pass
+        except Exception:
+            pass
+
+        # Reabilitar botao de enviar
+        try:
+            self.ui.pushButton_3.setEnabled(True)
+        except Exception:
+            pass
+
+        # Mostrar mensagem de resultado
         if success:
-            QMessageBox.information(self, "Sucesso", f"Emails enviados com sucesso!\n\n{message}")
-            self.statusBar().showMessage(f"Enviados para {len(self.destinatarios)} destinatários")
+            QMessageBox.information(self, "Sucesso", f"Emails enviados com sucesso!")
+            # Atualizar barra de status com confirmacao temporaria
+            try:
+                self.statusBar().showMessage(f"Enviados para {len(self.destinatarios)} destinatários", 5000)
+            except Exception:
+                pass
         else:
             QMessageBox.critical(self, "Erro no Envio", f"Falha ao enviar emails:\n{message}")
-            self.statusBar().showMessage("Erro no envio de emails")
+            try:
+                self.statusBar().showMessage("Erro no envio de emails", 5000)
+            except Exception:
+                pass
+
+        # limpar referencia ao worker
+        try:
+            self.email_worker = None
+        except Exception:
+            pass
 
     # ----------------------------
     # Placeholders das ações de menu
@@ -442,6 +552,16 @@ def main():
     try:
         app = QApplication(sys.argv)
         logger.debug("[OK] QApplication criado")
+
+        iconPath = juntarCaminhos(obterCaminhoBase(), "static/images/icon.ico")
+        try:
+            if checarArquivoExiste(iconPath):
+                app.setWindowIcon(QIcon(iconPath))
+                logger.debug("[OK] Icone definido com sucesso")
+            else:
+                logger.warning("[WARN] Arquivo de icone nao encontrado")
+        except Exception:
+            logger.error("[ERRO] Falha ao definir icone")
         
         # Configurar aplicação
         app.setApplicationName("Email Sender")

@@ -8,7 +8,7 @@ class ManageGroupsDialog(QDialog):
     def __init__(self, email_service, parent=None):
         super().__init__(parent)
         self.ui = Ui_Dialog_Manage()
-        self.ui.setupUi(self)
+        self.ui.setupUi(self, titleText="Gerenciar Grupos de Destinatários")
         self.email_service = email_service
         self._connect()
         self.reload()

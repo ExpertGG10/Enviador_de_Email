@@ -2,7 +2,7 @@ from typing import List, Dict, Any, Optional
 import logging
 import os
 
-from utils.util_arquivos import carregarJson, salvarJson, obterCaminhoBase, juntarCaminhos
+from utils.util_arquivos import carregarJson, criarDiretorioSistema, salvarJson, juntarCaminhos
 
 logger = logging.getLogger(__name__)
 
@@ -11,7 +11,7 @@ class RecipientGroupDao:
     """DAO para gerenciar grupos de destinatários com persistência em JSON."""
 
     def __init__(self, path: Optional[str] = None):
-        base = obterCaminhoBase()
+        base = criarDiretorioSistema('appdata', 'Enviador de Email')
         self.path = path or juntarCaminhos(base, "data/groups.json")
         # Garantir diretório
         parent = os.path.dirname(self.path) or '.'

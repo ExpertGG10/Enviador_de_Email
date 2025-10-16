@@ -2,7 +2,7 @@ import os
 import logging
 from typing import List, Dict, Any, Optional
 
-from utils.util_arquivos import carregarJson, salvarJson, obterCaminhoBase, juntarCaminhos
+from utils.util_arquivos import carregarJson, criarDiretorioSistema, salvarJson, juntarCaminhos
 
 logger = logging.getLogger(__name__)
 
@@ -11,7 +11,7 @@ class SenderDao:
     """DAO para gerenciar remetentes com persistência em JSON."""
 
     def __init__(self, path: Optional[str] = None):
-        base = obterCaminhoBase()
+        base = criarDiretorioSistema('appdata', 'Enviador de Email')
         self.path = path or juntarCaminhos(base, "data/senders.json")
         self._data = {"next_id": 1, "senders": []}
         self._load()
