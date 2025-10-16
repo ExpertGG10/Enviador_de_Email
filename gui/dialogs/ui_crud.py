@@ -20,7 +20,7 @@ from PySide6.QtWidgets import (QApplication, QDialog, QHBoxLayout, QLabel,
     QVBoxLayout, QWidget)
 
 class Ui_Dialog_Manage(object):
-    def setupUi(self, Dialog):
+    def setupUi(self, Dialog, titleText="Gerenciar"):
         if not Dialog.objectName():
             Dialog.setObjectName(u"Dialog")
         Dialog.resize(400, 300)
@@ -237,15 +237,16 @@ class Ui_Dialog_Manage(object):
 
         self.verticalLayout.addWidget(self.widget)
 
+        self.title.setText(QCoreApplication.translate("Dialog", titleText, None))
 
-        self.retranslateUi(Dialog)
+        self.retranslateUi(Dialog, titleText)
 
         QMetaObject.connectSlotsByName(Dialog)
     # setupUi
 
-    def retranslateUi(self, Dialog):
-        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", u"Dialog", None))
-        self.title.setText(QCoreApplication.translate("Dialog", u"Gerenciar", None))
+    def retranslateUi(self, Dialog, dialogTitleText="Dialog"):
+        Dialog.setWindowTitle(QCoreApplication.translate("Dialog", dialogTitleText, None))
+
         self.btn_select.setText(QCoreApplication.translate("Dialog", u"Selecionar", None))
         self.btn_remove.setText(QCoreApplication.translate("Dialog", u"Remover", None))
         self.btn_add.setText(QCoreApplication.translate("Dialog", u"Adicionar", None))

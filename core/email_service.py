@@ -114,6 +114,22 @@ class EmailService:
         return self.recipient_dao.list_all()
 
 
+    def update_recipient(self, recipient_id: int, address: str | None = None, groupId: int | None = None):
+        try:
+            return self.recipient_dao.update(recipient_id, address=address, groupId=groupId)
+        except Exception as e:
+            logger.error(f"[ERRO] Erro ao atualizar destinatario: {e}")
+            raise EmailServiceError(f"Erro ao atualizar destinatario: {e}")
+
+
+    def delete_recipient(self, recipient_id: int):
+        try:
+            return self.recipient_dao.delete(recipient_id)
+        except Exception as e:
+            logger.error(f"[ERRO] Erro ao deletar destinatario: {e}")
+            raise EmailServiceError(f"Erro ao deletar destinatario: {e}")
+
+
     def process_recipient_file(self, file_path: str) -> List[str]:
         logger.info(f"[FILE] Processando arquivo: {file_path}")
         try:
