@@ -327,15 +327,15 @@ class MainWindow(QMainWindow):
         if dlg.exec_() == QDialog.DialogCode.Accepted:
             emails = getattr(dlg, 'selected_group_emails', None)
             if emails:
-                novos = [e for e in emails if e not in self.destinatarios]
-                self.destinatarios.extend(novos)
-                for e in novos:
+                # Substitui os destinatários atuais pelos do grupo selecionado
+                self.destinatarios = list(emails)
+                for e in self.destinatarios:
                     try:
                         self.email_service.add_recipient(e)
                     except Exception as err:
                         logger.warning(f"[WARN] Falha ao persistir {e}: {err}")
                 self.statusBar().showMessage(f"{len(self.destinatarios)} destinatários carregados")
-                QMessageBox.information(self, "Destinatários", f"{len(novos)} destinatário(s) adicionados do grupo.")
+                QMessageBox.information(self, "Destinatários", f"{len(self.destinatarios)} destinatário(s) selecionados do grupo.")
                 # habilitar envio se houver remetente
                 if self.remetente:
                     try:

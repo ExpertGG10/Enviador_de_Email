@@ -37,12 +37,6 @@ class EmailService:
     def list_groups(self) -> List[Dict[str, Any]]:
         return self.group_dao.list_all()
 
-    def update_group(self, group_id: int, name: str) -> Dict[str, Any]:
-        try:
-            return self.group_dao.update(group_id, name=name)
-        except Exception as e:
-            logger.error(f"[ERRO] Erro ao atualizar grupo: {e}")
-            raise EmailServiceError(str(e))
 
     def delete_group(self, group_id: int) -> bool:
         try:
@@ -72,16 +66,6 @@ class EmailService:
             logger.error(f"[ERRO] Erro ao adicionar recipient {recipient_id} ao grupo {group_id}: {e}")
             raise EmailServiceError(str(e))
 
-    def remove_recipient_from_group(self, recipient_id: int, group_id: int) -> bool:
-        try:
-            # atualiza recipient
-            self.recipient_dao.update(recipient_id, groupId=0)
-            # atualiza grupo
-            self.group_dao.remove_recipient_from_group(group_id, recipient_id)
-            return True
-        except Exception as e:
-            logger.error(f"[ERRO] Erro ao remover recipient {recipient_id} do grupo {group_id}: {e}")
-            raise EmailServiceError(str(e))
 
     def list_group_recipients(self, group_id: int) -> List[Dict[str, Any]]:
         grp = self.group_dao.find_by_id(group_id)
@@ -129,19 +113,6 @@ class EmailService:
     def list_recipients(self) -> List[Dict[str, Any]]:
         return self.recipient_dao.list_all()
 
-    def update_recipient(self, recipient_id: int, address: str | None = None, groupId: int | None = None):
-        try:
-            return self.recipient_dao.update(recipient_id, address, groupId)
-        except Exception as e:
-            logger.error(f"[ERRO] Erro ao atualizar destinatario: {e}")
-            raise EmailServiceError(f"Erro ao atualizar destinatario: {e}")
-
-    def delete_recipient(self, recipient_id: int):
-        try:
-            return self.recipient_dao.delete(recipient_id)
-        except Exception as e:
-            logger.error(f"[ERRO] Erro ao deletar destinatario: {e}")
-            raise EmailServiceError(f"Erro ao deletar destinatario: {e}")
 
     def process_recipient_file(self, file_path: str) -> List[str]:
         logger.info(f"[FILE] Processando arquivo: {file_path}")
