@@ -1,15 +1,16 @@
 from typing import List
 
-
 class RecipientGroupModel:
-    def __init__(self, groupId: int, name: str, recipients: List[int] | None = None):
-        """
-        Representa um grupo de destinatários.
+    """
+    Model representing a group of recipients.
 
-        - groupId: id do grupo
-        - name: nome do grupo
-        - recipients: lista de recipient ids pertencentes ao grupo
-        """
-        self.groupId = groupId
+    Args:
+        group_id (int): Unique identifier for the group. 
+        name (str): Name of the group.
+        recipients (List[int] | None): List of recipient IDs belonging to the group.
+    """
+    def __init__(self, group_id: int = None, name: str = None, recipients: List[int] | None = None):
+
+        self.group_id = group_id
         self.name = name
         self.recipients = recipients or []

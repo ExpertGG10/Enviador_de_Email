@@ -7,33 +7,33 @@ from email.mime.base import MIMEBase
 from email import encoders
 
 class EmailModel:
-    def __init__(self, senderAddress: str, recipientAddress: str, subject: str, body: str, attachments: list = None):
+    def __init__(self, sender_address: str, recipient_address: str, subject: str, body: str, attachments: list = None):
         """
-        Classe para representar um modelo de email.
+        Class model for an email message.
 
-        params:
-        - senderAddress (str): Endereço de email do remetente.
-        - recipientAddress (str): Endereço de email do destinatário.
-        - subject (str): Assunto do email.
-        - body (str): Corpo do email.
-        - attachments (list): Lista de caminhos para arquivos anexos.
+        Args:
+            sender_address (str): Email address of the sender.
+            recipient_address (str): Email address of the recipient.
+            subject (str): Subject of the email.
+            body (str): Body content of the email (HTML format).
+            attachments (list): List of file paths to attach to the email.
         """
-        self.senderAddress = senderAddress
-        self.recipientAddress = recipientAddress
+        self.sender_address = sender_address
+        self.recipient_address = recipient_address
         self.subject = subject
         self.body = body
         self.attachments = attachments or []
 
-    def createMessage(self) -> EmailMessage:
+    def create_message(self) -> EmailMessage:
         """
-        Cria uma mensagem de email a partir dos atributos do modelo.
+        Create an email message from the model's attributes.
         """
-        # Se há anexos, usar MIMEMultipart
+        # If there are attachments, use MIMEMultipart
         if self.attachments:
             msg = MIMEMultipart()
             msg['Subject'] = self.subject
-            msg['From'] = self.senderAddress
-            msg['To'] = self.recipientAddress
+            msg['From'] = self.sender_address
+            msg['To'] = self.recipient_address
             
             corpo = MIMEText(self.body, 'html')
             print(corpo)
@@ -48,8 +48,8 @@ class EmailModel:
             # Sem anexos, usar EmailMessage simples
             msg = EmailMessage()
             msg['Subject'] = self.subject
-            msg['From'] = self.senderAddress
-            msg['To'] = self.recipientAddress
+            msg['From'] = self.sender_address
+            msg['To'] = self.recipient_address
             msg.set_content(self.body)
         
         return msg

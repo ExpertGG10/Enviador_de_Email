@@ -1,58 +1,97 @@
-import os
 import logging
-from typing import List, Dict, Any, Optional
 
-from utils.util_arquivos import carregarJson, criarDiretorioSistema, salvarJson, juntarCaminhos
+from typing import List, Optional
+
+from dao.base_dao import BaseDao
+
+from models.sender_model import SenderModel
 
 logger = logging.getLogger(__name__)
 
+class SenderDao(BaseDao):
+    """
+    DAO for managing email senders.
 
-class SenderDao:
-    """DAO para gerenciar remetentes com persistência em JSON."""
-
+    Args:
+        path (Optional[str]): Path to the JSON file for storing senders.
+        data_name (str): Name of the data section in the JSON file.
+    """
     def __init__(self, path: Optional[str] = None):
-        base = criarDiretorioSistema('appdata', 'Enviador de Email')
-        self.path = path or juntarCaminhos(base, "data/senders.json")
-        self._data = {"next_id": 1, "senders": []}
-        self._load()
+        super().__init__(path, data_name="senders")
 
-    def _load(self):
-        data = carregarJson(self.path)
-        if data:
-            self._data = {"next_id": data.get("next_id", 1), "senders": data.get("senders", [])}
+    def list_all(self) -> List[SenderModel]:
+        """
+        List all email senders.
 
-    def _save(self):
-        salvarJson(self.path, self._data)
+        Returns:
+            List[SenderModel]: List of senders.
+        """
+        return [SenderModel(**s) for s in self._data[self.data_name]]
 
-    def list_all(self) -> List[Dict[str, Any]]:
-        return list(self._data["senders"])
+    def find_by_address(self, address: str) -> Optional[SenderModel]:
+        """
+        Find a sender by email address.
 
-    def find_by_email(self, address: str) -> Optional[Dict[str, Any]]:
-        for s in self._data["senders"]:
+        Args:
+            address (str): Email address to search for.
+        Returns:
+            Optional[Dict[str, Any]]: Sender data if found, else None.
+        """
+        for s in self._data[self.data_name]:
             if s["address"].lower() == address.lower():
-                return s
+                return SenderModel(**s)
         return None
 
-    def add(self, address: str, appPassword: str) -> Dict[str, Any]:
-        existing = self.find_by_email(address)
+    def add(self, sender: SenderModel) -> SenderModel:
+        """
+        Add a new sender.
+
+        Args:
+            sender (SenderModel): Sender data to add.
+        Returns:
+            SenderModel: The added sender data.
+        """
+        existing = self.find_by_address(sender.address)
         if existing:
-            if existing.get("appPassword") != appPassword:
-                existing["appPassword"] = appPassword
+            if existing.app_password != sender.app_password:
+                existing.app_password = sender.app_password
                 self._save()
             return existing
+        
         new_id = self._data["next_id"]
-        sender = {"id": new_id, "address": address, "appPassword": appPassword}
-        self._data["senders"].append(sender)
+        sender.sender_id = new_id
+
+        self._data[self.data_name].append(sender.__dict__)
+
         self._data["next_id"] += 1
+
         self._save()
-        logger.info(f"[DAO] Added sender: {address} (id={new_id})")
+
+        logger.info(f"[DAO] Added sender: {sender.address} (id={new_id})")
+
         return sender
 
     def delete(self, sender_id: int) -> bool:
-        before = len(self._data["senders"])
-        self._data["senders"] = [s for s in self._data["senders"] if s["id"] != sender_id]
-        if len(self._data["senders"]) < before:
+        """
+        Delete a sender by ID.
+
+        Args:
+            sender_id (int): ID of the sender to delete.
+        Returns:
+            bool: True if the sender was deleted, False otherwise.
+        """
+
+        before = len(self._data[self.data_name])
+
+        self._data[self.data_name] = [
+            s for s in self._data[self.data_name] if s["sender_id"] != sender_id
+        ]
+
+        if len(self._data[self.data_name]) < before:
             self._save()
+
             logger.info(f"[DAO] Deleted sender id={sender_id}")
+
             return True
+        
         return False

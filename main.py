@@ -4,7 +4,7 @@ from PySide6.QtWidgets import QApplication
 from PySide6.QtGui import QIcon
 
 from gui.main_window import MainWindow
-from utils.util_arquivos import obterCaminhoBase, juntarCaminhos, checarArquivoExiste
+from utils.files import get_base_path, join_paths, file_exists
 
 
 logging.basicConfig(
@@ -28,9 +28,9 @@ def main():
         app = QApplication(sys.argv)
         logger.debug("[OK] QApplication criado")
 
-        iconPath = juntarCaminhos(obterCaminhoBase(), "static/images/icon.ico")
+        iconPath = join_paths(get_base_path(), "static/images/icon.ico")
         try:
-            if checarArquivoExiste(iconPath):
+            if file_exists(iconPath):
                 app.setWindowIcon(QIcon(iconPath))
                 logger.debug("[OK] Icone definido com sucesso")
             else:

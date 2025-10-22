@@ -1,38 +1,68 @@
+import logging
+from typing import Optional
+
 from PySide6.QtWidgets import QDialog, QMessageBox, QListWidget, QListWidgetItem
 from gui.dialogs.ui_crud import Ui_Dialog_Manage
 
+from controller.sender_controller import SenderController
+
+from models.sender_model import SenderModel
+
+logger = logging.getLogger(__name__)
+logger.info("[EMAIL] Iniciando configuracao de remetente...")
 
 class ManageSendersDialog(QDialog):
-    def __init__(self, email_service, parent=None):
+    """
+    Dialog for managing email senders.
+
+    Args:
+        controller (SenderController): Controller for sender operations.
+        parent (QDialog, optional): Parent dialog for modal behavior.
+    """
+
+    def __init__(self, controller: SenderController, parent: Optional[QDialog] = None):
         super().__init__(parent)
+        self.controller = controller
+
         self.ui = Ui_Dialog_Manage()
         self.ui.setupUi(self, titleText="Gerenciar Remetentes")
-        self.email_service = email_service
+
         self._connect()
         self.reload()
+
         self.selected_sender = None
 
     def _connect(self):
+        """
+        Connect UI signals to their respective slots.
+        """
         self.ui.btn_add.clicked.connect(self.on_add)
         self.ui.btn_remove.clicked.connect(self.on_delete)
         self.ui.btn_select.clicked.connect(self.on_select)
 
     def reload(self):
-        # Usar QListWidget para listar apenas os emails
+        """
+        Reload the list of senders in the UI.
+        """
+
         if not hasattr(self.ui, 'list_widget'):
             self.ui.list_widget = QListWidget(self)
             self.ui.verticalLayout.addWidget(self.ui.list_widget)
+
         lst = self.ui.list_widget
         lst.clear()
-        senders = self.email_service.list_senders()
+
+        senders = self.controller.list_senders()
+
         for s in senders:
-            lst.addItem(QListWidgetItem(s['address']))
+            lst.addItem(QListWidgetItem(s.address))
 
     def on_add(self):
+        """
+        Add a new sender via a dialog.
+        """
+
         from gui.dialogs.ui_adicionar_remetente import Ui_Dialog_Adicionar_Remetente
-        import logging
-        logger = logging.getLogger(__name__)
-        logger.info("[EMAIL] Iniciando configuracao de remetente...")
 
         dlg = QDialog(self)
         dlg.ui = Ui_Dialog_Adicionar_Remetente()
@@ -45,11 +75,11 @@ class ManageSendersDialog(QDialog):
                 QMessageBox.information(self, "Remetente", "Configuração cancelada.")
                 return
 
-            email = dlg.ui.lineEdit.text().strip()
+            address = dlg.ui.lineEdit.text().strip()
             password = dlg.ui.lineEdit_2.text().strip()
 
             # Checagens básicas
-            if not email:
+            if not address:
                 logger.debug("[VALIDACAO] Email vazio")
                 QMessageBox.warning(self, "Email Obrigatório", "Por favor, digite um email válido.")
                 continue
@@ -60,45 +90,85 @@ class ManageSendersDialog(QDialog):
                 continue
 
             # Adiciona na database
-            sender = self.email_service.add_sender(email, password)
-            logger.info(f"[OK] Remetente configurado e salvo: {sender['address']} (id={sender['id']})")
-            QMessageBox.information(self, "Remetente", f"Remetente '{email}' adicionado com sucesso.")
+            try:
+                sender = self.controller.add_sender(address, password)
+                
+                logger.info(f"[OK] Remetente configurado e salvo: {sender.address} (id={sender.sender_id})")
+                QMessageBox.information(self, "Remetente", f"Remetente '{address}' adicionado com sucesso.")
+            except Exception as e:
+                logger.error(f"[ERRO] Falha ao adicionar remetente: {e}")
+                QMessageBox.critical(self, "Erro", f"Falha ao adicionar remetente: {e}")
+            
             self.reload()
+
             break
 
-    def on_delete(self):
-        lst = getattr(self.ui, 'list_widget', None)
+    def get_item_list_widget(self) -> QListWidget:
+        """
+        Get the QListWidget containing the senders.
+
+        Returns:
+            QListWidget: The list widget with senders.
+        """
+
+        lst = lst = getattr(self.ui, 'list_widget', None)
+
         if not lst:
             return
+        
         row = lst.currentRow()
         if row < 0:
             return
-        email = lst.item(row).text()
-        senders = self.email_service.list_senders()
-        s = next((x for x in senders if x['address'] == email), None)
-        if s:
-            self.email_service.delete_sender(s['id'])
-            QMessageBox.information(self, "Remetente", f"Remetente '{email}' removido com sucesso.")
-            self.reload()
+
+        return lst.item(row).text()
+    
+    def get_sender_by_selected_item(self) -> Optional[SenderModel]:
+        """
+        Get the sender model corresponding to the selected item in the list.
+        
+        Returns:
+            Optional[SenderModel]: The selected sender model, or None if not found.
+        """
+        address = self.get_item_list_widget()
+        senders = self.controller.list_senders()
+        sender = next((s for s in senders if s.address == address), None)
+
+        return sender
+
+    def on_delete(self):
+        """
+        Delete the selected sender.
+        """
+
+        sender = self.get_sender_by_selected_item()
+
+        if sender:
+            try:
+                self.controller.delete_sender(sender.sender_id)
+                
+                logger.info(f"[OK] Remetente removido: {sender.address} (id={sender.sender_id})")
+                QMessageBox.information(self, "Remetente", f"Remetente '{sender.address}' removido com sucesso.")
+
+                self.reload()
+            except Exception as e:
+                logger.error(f"[ERRO] Falha ao remover remetente: {e}")
+                QMessageBox.critical(self, "Erro", f"Falha ao remover remetente: {e}")
 
     def on_select(self):
-        lst = getattr(self.ui, 'list_widget', None)
-        if not lst:
-            return
-        row = lst.currentRow()
-        if row < 0:
-            return
-        email = lst.item(row).text()
-        senders = self.email_service.list_senders()
-        s = next((x for x in senders if x['address'] == email), None)
-        if s:
+        """
+        Select the highlighted sender.
+        """
+
+        sender = self.get_sender_by_selected_item()
+
+        if sender:
             try:
-                self.email_service.configure_sender(s['address'], s['appPassword'])
-                self.selected_sender = s['address']
-                self.selected_password = s['appPassword']
-                QMessageBox.information(self, "Remetente", f"Remetente '{email}' selecionado com sucesso.")
+                self.selected_sender = sender
+
+                logger.info(f"[OK] Remetente selecionado: {sender.address} (id={sender.sender_id})")
+                QMessageBox.information(self, "Remetente", f"Remetente '{sender.address}' selecionado com sucesso.")
+
                 self.accept()
             except Exception as e:
+                logger.error(f"[SELECT] Falha ao configurar remetente: {e}")
                 QMessageBox.critical(self, "Erro", f"Falha ao configurar remetente: {e}")
-            print(f"[SELECT] Falha ao configurar remetente {email}: {e}")
-            QMessageBox.critical(self, "Erro", f"Falha ao configurar remetente: {e}")

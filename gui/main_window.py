@@ -1,19 +1,25 @@
 import sys
-import os
-import csv
 import logging
+import io
 
 from PySide6.QtWidgets import (
-    QApplication, QMainWindow, QFileDialog, QMessageBox, QInputDialog, QProgressDialog, QLineEdit, QDialog
+    QApplication, QMainWindow, QFileDialog, QMessageBox, QProgressDialog,  QDialog
 )
-from PySide6.QtCore import QThread, Signal, Qt
+from PySide6.QtCore import Qt
 from PySide6.QtGui import QIcon
 
-from gui.dialogs.ui_adicionar_remetente import Ui_Dialog_Adicionar_Remetente
+from typing import Optional
+
 from gui.dialogs.manage_senders import ManageSendersDialog
 from gui.dialogs.manage_groups import ManageGroupsDialog
+from gui.ui_mainwindow import Ui_MainWindow
+from gui.workers.email_worker import EmailWorker
 
-from utils.util_arquivos import obterCaminhoBase, juntarCaminhos, checarArquivoExiste
+from core.email_service import EmailService
+
+from utils.exceptions import EmailServiceError
+from utils.validators import validate_required_fields
+from utils.files import get_base_path, add_to_sys_path, join_paths, file_exists
 
 # Configurar logging para debug
 logging.basicConfig(
@@ -27,13 +33,19 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 # Configurar encoding para Windows
-import io
-def _safe_wrap_stream(stream):
-    """Return a UTF-8 text wrapper for the given stream or a harmless fallback.
+
+def _safe_wrap_stream(stream: Optional[io.TextIOBase]) -> io.TextIOBase:
+    """
+    Return a UTF-8 text wrapper for the given stream or a harmless fallback.
 
     In frozen GUI apps (PyInstaller) sys.stdout/sys.stderr may be None, or
     may lack a .buffer attribute. This helper avoids AttributeError by
     falling back to an in-memory StringIO when necessary.
+
+    Args:
+        stream (Optional[io.TextIOBase]): The original text stream.
+    Returns:
+        io.TextIOBase: A UTF-8 wrapped text stream or a StringIO fallback.
     """
     try:
         if stream is None:
@@ -52,39 +64,8 @@ sys.stdout = _safe_wrap_stream(sys.stdout)
 sys.stderr = _safe_wrap_stream(sys.stderr)
 
 # Adicionar o diretório raiz ao path para importações
-sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
-logger.debug(f"Adicionado ao sys.path: {os.path.dirname(os.path.dirname(os.path.abspath(__file__)))}")
-
-try:
-    from gui.ui_mainwindow import Ui_MainWindow
-    logger.debug("[OK] Importacao Ui_MainWindow bem-sucedida")
-except ImportError as e:
-    logger.error(f"[ERRO] Erro ao importar Ui_MainWindow: {e}")
-    raise
-
-
-try:
-    from gui.dialogs.ui_adicionar_remetente import Ui_Dialog_Adicionar_Remetente
-    logger.debug("[OK] Importacao Ui_MainWindow bem-sucedida")
-except ImportError as e:
-    logger.error(f"[ERRO] Erro ao importar Ui_MainWindow: {e}")
-    raise
-
-
-try:
-    from core.email_service import EmailService
-    logger.debug("[OK] Importacao EmailService bem-sucedida")
-except ImportError as e:
-    logger.error(f"[ERRO] Erro ao importar EmailService: {e}")
-    raise
-
-try:
-    from utils.exceptions import EmailServiceError
-    from utils.validators import validate_required_fields, validate_file_extension
-    logger.debug("[OK] Importacoes de utils bem-sucedidas")
-except ImportError as e:
-    logger.error(f"[ERRO] Erro ao importar utils: {e}")
-    raise
+add_to_sys_path(get_base_path())
+logger.debug(f"Adicionado ao sys.path: {get_base_path()}")
 
 # Caso você tenha colado a classe Ui_MainWindow no MESMO arquivo deste código,
 # mantenha a importação acima comentada e garanta que a classe Ui_MainWindow
@@ -94,72 +75,13 @@ except ImportError as e:
 # Exemplo assume que Ui_MainWindow já está definido/importado
 # ----------------------------
 
-class EmailWorker(QThread):
-    """Thread para envio de emails em background."""
-    progress = Signal(int)
-    finished = Signal(bool, str)
-    
-    def __init__(self, service, recipients, subject, body, attachments=None):
-        super().__init__()
-        self.service = service
-        self.recipients = recipients
-        self.subject = subject
-        self.body = body
-        self.attachments = attachments or []
-        self._cancel_requested = False
-        logger.debug(f"[EMAIL] EmailWorker criado para {len(recipients)} destinatarios")
-        if self.attachments:
-            logger.debug(f"[ANEXO] {len(self.attachments)} anexo(s) incluidos")
-    
-    def run(self):
-        logger.info(f"[ENVIO] Iniciando envio de emails para {len(self.recipients)} destinatarios")
-        success_count = 0
-        failed_count = 0
-        try:
-            # Use controller.sendEmail per recipient so we can emit progress
-            for idx, recipient in enumerate(self.recipients, start=1):
-                if self._cancel_requested:
-                    logger.info("[ENVIO] Cancelamento solicitado pelo usuário")
-                    self.finished.emit(False, "Cancelado pelo usuário")
-                    return
-                try:
-                    if not self.service.controller:
-                        raise EmailServiceError("Remetente não configurado")
-                    # send single email
-                    self.service.controller.sendEmail(recipient, self.subject, self.body, self.attachments)
-                    success_count += 1
-                    logger.debug(f"[OK] Email enviado para {recipient} ({idx}/{len(self.recipients)})")
-                except Exception as e:
-                    failed_count += 1
-                    logger.error(f"[ERRO] Falha ao enviar para {recipient}: {e}")
-                # emit progress (use idx so progress dialog shows sent count)
-                try:
-                    self.progress.emit(idx)
-                except Exception:
-                    # ignore signal emission errors
-                    pass
-
-            if failed_count == 0:
-                msg = 'Emails enviados com sucesso'
-                logger.info(f"[OK] Envio concluido com sucesso: {msg}")
-                self.finished.emit(True, msg)
-            else:
-                msg = f'{success_count} enviados, {failed_count} falharam'
-                logger.warning(f"[WARN] Envio concluido com resultados: {msg}")
-                self.finished.emit(False, msg)
-        except EmailServiceError as e:
-            logger.error(f"[ERRO] Erro no envio de emails: {e}")
-            self.finished.emit(False, str(e))
-        except Exception as e:
-            logger.error(f"[ERRO] Erro inesperado no envio: {e}")
-            self.finished.emit(False, f"Erro inesperado: {e}")
-
-    def request_cancel(self):
-        """Solicita que o worker cancele o envio entre mensagens."""
-        self._cancel_requested = True
-
-
 class MainWindow(QMainWindow):
+    """
+    Main window class for the Email Sender application.
+
+    Args:
+        parent: Optional parent widget.
+    """
     def __init__(self, parent=None):
         logger.info("[INIT] Inicializando MainWindow...")
         super().__init__(parent)
@@ -176,10 +98,9 @@ class MainWindow(QMainWindow):
         logger.debug("[OK] EmailService criado")
         
         # Estado do app
-        self.remetente = None
-        self.remetente_password = None
-        self.destinatarios = []
-        self.anexos = []
+        self.sender = None
+        self.recipients = []
+        self.attachments = []
         self.email_worker = None
         logger.debug("[OK] Estado inicial configurado")
 
@@ -198,33 +119,35 @@ class MainWindow(QMainWindow):
 
 
     def _connect_signals(self):
+        """
+        Connect UI elements to their respective slots.
+        """
         # Botões
         self.ui.pushButton.clicked.connect(self.on_informacoes_clicked)        # "Informações"
         self.ui.pushButton_2.clicked.connect(self.on_anexo_clicked)            # "Anexo"
         self.ui.pushButton_3.clicked.connect(self.on_enviar_clicked)           # "Enviar"
 
         # Ações de menu
-        self.ui.actionRemetente.triggered.connect(self.on_manage_remetentes_triggered)
-        self.ui.actionDestinatario.triggered.connect(self.on_manage_destinatarios_triggered)
+        self.ui.actionRemetente.triggered.connect(self.on_manage_senders_triggered)
+        self.ui.actionDestinatario.triggered.connect(self.on_manage_recipients_triggered)
     
     def _setup_initial_ui(self):
-        """Configuração inicial da interface."""
+        """
+        Initial UI setup.
+        """
         self.setWindowTitle("Email Sender - Rio Software")
         self.statusBar().showMessage("Pronto para enviar emails")
         
-        # Desabilitar botão de envio até configurar remetente
+        # Desabilitar botão de envio até configurar sender
         self.ui.pushButton_3.setEnabled(False)
 
     # ----------------------------
     # Placeholders dos botões
     # ----------------------------
     def on_informacoes_clicked(self):
-
-        anexos_info = ""
-        if self.anexos:
-            anexos_info = f"\nArquivos anexos:\n" + "\n".join([f"- {os.path.basename(anexo)}" for anexo in self.anexos[:5]])
-            if len(self.anexos) > 5:
-                anexos_info += f"\n... e mais {len(self.anexos) - 5} arquivo(s)"
+        """
+        Show information about generating app passwords.
+        """
 
         info = ( """Como gerar a Senha de Aplicativo no Gmail:
 
@@ -236,21 +159,29 @@ class MainWindow(QMainWindow):
         QMessageBox.information(self, "Senha App", info)
 
     def on_anexo_clicked(self):
-        arquivos, _ = QFileDialog.getOpenFileNames(self, "Selecionar arquivos para anexar")
-        if arquivos:
-            self.anexos.extend(arquivos)
-            self.statusBar().showMessage(
-                f"{len(arquivos)} anexo(s) adicionado(s). Total: {len(self.anexos)}", 4000
-            )
+        """
+        Handle adding attachments.
+        """
+        files, _ = QFileDialog.getOpenFileNames(self, "Selecionar arquivos para anexar")
+
+        if files:
+            self.attachments.extend(files)
+
+            msg = f"{len(files)} anexo(s) adicionado(s). Total: {len(self.attachments)}"
+
+            self.statusBar().showMessage(msg, 4000)
+            logger.info(f"[ANEXO] {msg}")
 
     def on_enviar_clicked(self):
-        """Envia emails usando o serviço de email."""
+        """
+        Send emails using the email service.
+        """
         # Validar dados
-        assunto = (self.ui.lineEdit.text() or "").strip()
-        corpo = (self.ui.textEdit.toHtml() or "").strip()
+        subject = (self.ui.lineEdit.text() or "").strip()
+        body = (self.ui.textEdit.toHtml() or "").strip()
         
         # Validar campos obrigatórios
-        errors = validate_required_fields(self.remetente, self.destinatarios, assunto, corpo)
+        errors = validate_required_fields(self.sender, self.recipients, subject, body)
         if errors:
             QMessageBox.warning(self, "Dados Inválidos", "\n".join(errors))
             return
@@ -259,9 +190,9 @@ class MainWindow(QMainWindow):
         reply = QMessageBox.question(
             self, 
             "Confirmar Envio", 
-            f"Enviar email para {len(self.destinatarios)} destinatário(s)?\n\n"
-            f"Assunto: {assunto}\n"
-            f"Destinatários: {', '.join(self.destinatarios[:3])}{'...' if len(self.destinatarios) > 3 else ''}",
+            f"Enviar email para {len(self.recipients)} destinatário(s)?\n\n"
+            f"Assunto: {subject}\n"
+            f"Destinatários: {', '.join(self.recipients[:3])}{'...' if len(self.recipients) > 3 else ''}",
             QMessageBox.Yes | QMessageBox.No
         )
         
@@ -269,15 +200,15 @@ class MainWindow(QMainWindow):
             return
         
         # Configurar serviço se necessário
-        if not self.email_service.controller:
+        if not self.email_service.email_controller:
             try:
-                self.email_service.configure_sender(self.remetente, self.remetente_password)
+                self.email_service.email_controller.sender = self.sender
             except EmailServiceError as e:
                 QMessageBox.critical(self, "Erro de Configuração", str(e))
                 return
 
         # Criar diálogo de progresso com contagem por destinatário (sempre criado quando iniciar envio)
-        total = len(self.destinatarios)
+        total = len(self.recipients)
         # garantir que existe um dialogo anterior fechado
         try:
             if hasattr(self, 'progress_dialog') and self.progress_dialog is not None:
@@ -285,7 +216,6 @@ class MainWindow(QMainWindow):
                     self.progress_dialog.close()
                 except Exception:
                     pass
-
         except Exception:
             pass
 
@@ -296,12 +226,17 @@ class MainWindow(QMainWindow):
         self.progress_dialog.setMinimumDuration(200)
         self.progress_dialog.show()
 
-        # Criar worker thread (somente uma vez)
-        self.email_worker = EmailWorker(self.email_service, self.destinatarios, assunto, corpo, self.anexos)
-        # atualizar barra a cada progresso
+        self.email_worker = EmailWorker(
+            self.email_service.email_controller, 
+            self.recipients, 
+            subject, 
+            body, 
+            self.attachments
+        )
+
         try:
             self.email_worker.progress.connect(lambda v: self.progress_dialog.setValue(v))
-            # ligar cancelamento do diálogo ao worker
+
             self.progress_dialog.canceled.connect(lambda: self.email_worker.request_cancel())
         except Exception:
             logger.exception("Falha ao conectar sinais de progresso/cancelamento")
@@ -313,9 +248,15 @@ class MainWindow(QMainWindow):
         self.statusBar().showMessage("Enviando emails...")
         # Iniciar o worker
         self.email_worker.start()
-    
-    def on_email_sent(self, success, message):
-        """Callback chamado quando envio de email termina."""
+
+    def on_email_sent(self, success: bool, message: str):
+        """
+        Callback for when email sending is finished.
+
+        Args:
+            success (bool): True if emails were sent successfully, False otherwise.
+            message (str): Additional message or error details.
+        """
         # Fechar diálogo de progresso se existir
         try:
             if hasattr(self, 'progress_dialog') and self.progress_dialog is not None:
@@ -337,7 +278,7 @@ class MainWindow(QMainWindow):
             QMessageBox.information(self, "Sucesso", f"Emails enviados com sucesso!")
             # Atualizar barra de status com confirmacao temporaria
             try:
-                self.statusBar().showMessage(f"Enviados para {len(self.destinatarios)} destinatários", 5000)
+                self.statusBar().showMessage(f"Enviados para {len(self.recipients)} destinatários", 5000)
             except Exception:
                 pass
         else:
@@ -353,197 +294,58 @@ class MainWindow(QMainWindow):
         except Exception:
             pass
 
-    # ----------------------------
-    # Placeholders das ações de menu
-    # ----------------------------
-    def on_adicionar_remetente_triggered(self):
-        """Abre o diálogo de Adicionar Remetente (Qt Designer) para configurar remetente e senha."""
-        # Ajuste o caminho do import conforme sua estrutura de pastas:
+    def on_manage_senders_triggered(self):
+        """
+        Open the Manage Senders dialog.
+        """
 
-        logger.info("[EMAIL] Iniciando configuracao de remetente...")
+        dlg = ManageSendersDialog(self.email_service.sender_controller, parent=self)
 
-        dlg = QDialog()
-        dlg.ui = Ui_Dialog_Adicionar_Remetente()
-        dlg.ui.setupUi(dlg)
-
-
-        while True:
-            result = dlg.exec_()
-            if result != QDialog.DialogCode.Accepted:
-                logger.debug("[CANCEL] Configuracao de remetente cancelada pelo usuario")
-                QMessageBox.information(self, "Remetente", "Configuração cancelada.")
-                return
-
-            email = dlg.ui.lineEdit.text().strip()
-            password = dlg.ui.lineEdit_2.text().strip()
-
-            # Checagens básicas
-            if not email:
-                logger.debug("[VALIDACAO] Email vazio")
-                QMessageBox.warning(self, "Email Obrigatório", "Por favor, digite um email válido.")
-                continue
-
-            if not password:
-                logger.debug("[VALIDACAO] Senha vazia")
-                QMessageBox.warning(self, "Senha Obrigatória", "Por favor, digite a senha de aplicativo.")
-                continue
-
-            # Validação de email
-
-            # Se chegou aqui, está válido
-            self.remetente = email
-            self.remetente_password = password
-            logger.info(f"[OK] Remetente configurado: {self.remetente}")
-            break
-
-        # Habilitar botão de envio (conforme seu exemplo)
-        try:
-            self.ui.pushButton_3.setEnabled(True)
-        except Exception:
-            # Se a UI não tiver esse botão em algum contexto, não quebra a execução
-            pass
-
-        try:
-            self.statusBar().showMessage(f"Remetente configurado: {self.remetente}", 3000)
-        except Exception:
-            pass
-
-    def on_manage_remetentes_triggered(self):
-        dlg = ManageSendersDialog(self.email_service, parent=self)
         if dlg.exec_() == QDialog.DialogCode.Accepted:
             sel = getattr(dlg, 'selected_sender', None)
-            pwd = getattr(dlg, 'selected_password', None)
+            
             if sel:
-                self.remetente = sel
-                self.remetente_password = pwd
-                try:
-                    self.email_service.add_sender(self.remetente, self.remetente_password)
-                except Exception as e:
-                    logger.warning(f"[WARN] Nao foi possivel persistir remetente: {e}")
-                # habilitar envio se houver destinatarios
-                if self.destinatarios:
+                self.sender = sel
+                self.email_service.configure_sender(self.sender)
+                # habilitar envio se houver recipients
+                if self.recipients:
                     try:
                         self.ui.pushButton_3.setEnabled(True)
                     except Exception:
                         pass
-                # mostrar remetente na barra de status
+                # mostrar sender na barra de status
                 try:
-                    self.statusBar().showMessage(f"Remetente: {self.remetente}")
+                    self.statusBar().showMessage(f"Remetente: {self.sender.address}")
                 except Exception:
                     pass
 
-    def on_manage_destinatarios_triggered(self):
-        dlg = ManageGroupsDialog(self.email_service, parent=self)
+    def on_manage_recipients_triggered(self):
+        dlg = ManageGroupsDialog(
+            self.email_service.recipient_controller, 
+            self.email_service.group_controller, 
+            parent=self
+        )
+
         if dlg.exec_() == QDialog.DialogCode.Accepted:
             emails = getattr(dlg, 'selected_group_emails', None)
             if emails:
-                # Substitui os destinatários atuais pelos do grupo selecionado
-                self.destinatarios = list(emails)
-                for e in self.destinatarios:
-                    try:
-                        self.email_service.add_recipient(e)
-                    except Exception as err:
-                        logger.warning(f"[WARN] Falha ao persistir {e}: {err}")
-                self.statusBar().showMessage(f"{len(self.destinatarios)} destinatários carregados")
-                QMessageBox.information(self, "Destinatários", f"{len(self.destinatarios)} destinatário(s) selecionados do grupo.")
-                # habilitar envio se houver remetente
-                if self.remetente:
+                self.recipients = list(emails)
+                
+                self.statusBar().showMessage(f"{len(self.recipients)} destinatários carregados")
+                QMessageBox.information(self, "Destinatários", f"{len(self.recipients)} destinatário(s) selecionados do grupo.")
+                
+                if self.sender:
                     try:
                         self.ui.pushButton_3.setEnabled(True)
                     except Exception:
                         pass
 
-  
-    def on_escrever_manual_triggered(self):
-        email, ok = QInputDialog.getText(self, "Adicionar Destinatário", "E-mail do destinatário:")
-        if ok and email.strip():
-            address = email.strip()
-            self.destinatarios.append(address)
-            # Persistir destinatário
-            try:
-                self.email_service.add_recipient(address)
-            except Exception as e:
-                logger.warning(f"[WARN] Nao foi possivel persistir destinatario: {e}")
-            self.statusBar().showMessage(f"Destinatário adicionado: {address}", 3000)
-        elif ok:
-            QMessageBox.information(self, "Destinatários", "Nenhum e-mail informado.")
-
-    def on_importar_csv_triggered(self):
-        """Importa destinatários de arquivo Excel/CSV usando o DAO."""
-        logger.info("[IMPORT] Iniciando importacao de destinatarios...")
-        caminho, _ = QFileDialog.getOpenFileName(
-            self,
-            "Importar destinatarios",
-            filter="Arquivos suportados (*.csv *.xlsx *.xls);;CSV (*.csv);;Excel (*.xlsx *.xls);;Todos os arquivos (*.*)"
-        )
-        if not caminho:
-            logger.debug("[CANCEL] Importacao cancelada pelo usuario")
-            return
-
-        logger.info(f"[FILE] Arquivo selecionado: {caminho}")
-
-        # Validar extensão do arquivo
-        if not validate_file_extension(caminho):
-            logger.warning(f"[ERRO] Formato de arquivo nao suportado: {caminho}")
-            QMessageBox.warning(
-                self, 
-                "Formato nao suportado", 
-                "Por favor, selecione um arquivo CSV (.csv) ou Excel (.xlsx, .xls)."
-            )
-            return
-
-        logger.debug(f"[OK] Formato de arquivo valido: {caminho}")
-
-        try:
-            # Usar o DAO para processar o arquivo
-            logger.debug("[PROCESS] Processando arquivo com EmailService...")
-            emails = self.email_service.process_recipient_file(caminho)
-            logger.info(f"[EMAIL] {len(emails)} emails encontrados no arquivo")
-            
-            # Adicionar emails únicos (evitar duplicatas) e persisti-los
-            novos_emails = []
-            for email in emails:
-                if email not in self.destinatarios:
-                    self.destinatarios.append(email)
-                    novos_emails.append(email)
-            
-            logger.info(f"[EMAIL] {len(novos_emails)} novos emails adicionados")
-            logger.info(f"[TOTAL] Total de destinatarios: {len(self.destinatarios)}")
-            
-            if novos_emails:
-                QMessageBox.information(
-                    self, 
-                    "Importacao Concluida", 
-                    f"{len(novos_emails)} novo(s) destinatario(s) importado(s).\n"
-                    f"Total de destinatarios: {len(self.destinatarios)}\n\n"
-                    f"Primeiros emails:\n{', '.join(novos_emails[:5])}"
-                    f"{'...' if len(novos_emails) > 5 else ''}"
-                )
-                self.statusBar().showMessage(f"{len(self.destinatarios)} destinatarios carregados")
-                # Persistir novos emails no DAO
-                for e in novos_emails:
-                    try:
-                        self.email_service.add_recipient(e)
-                    except Exception as err:
-                        logger.warning(f"[WARN] Falha ao persistir {e}: {err}")
-            else:
-                logger.info("[INFO] Nenhum email novo encontrado")
-                QMessageBox.information(
-                    self, 
-                    "Nenhum email novo", 
-                    "Todos os emails do arquivo ja estavam na lista de destinatarios."
-                )
-                
-        except EmailServiceError as e:
-            logger.error(f"[ERRO] Erro na importacao: {e}")
-            QMessageBox.critical(self, "Erro na Importacao", str(e))
-        except Exception as e:
-            logger.error(f"[ERRO] Erro inesperado na importacao: {e}")
-            QMessageBox.critical(self, "Erro Inesperado", f"Ocorreu um erro inesperado:\n{e}")
-
 
 def main():
-    """Função principal para executar a aplicação."""
+    """
+    Main function to run the application.
+    """
+
     logger.info("[START] Iniciando aplicacao Email Sender...")
     print("=" * 50)
     print("INICIANDO EMAIL SENDER")
@@ -553,9 +355,9 @@ def main():
         app = QApplication(sys.argv)
         logger.debug("[OK] QApplication criado")
 
-        iconPath = juntarCaminhos(obterCaminhoBase(), "static/images/icon.ico")
+        iconPath = join_paths(get_base_path(), "static/images/icon.ico")
         try:
-            if checarArquivoExiste(iconPath):
+            if file_exists(iconPath):
                 app.setWindowIcon(QIcon(iconPath))
                 logger.debug("[OK] Icone definido com sucesso")
             else:

@@ -1,6 +1,8 @@
 import re
 from typing import List
 
+from models.sender_model import SenderModel
+
 
 def validate_email(email: str) -> bool:
     """
@@ -30,7 +32,7 @@ def validate_file_extension(file_path: str) -> bool:
     return any(file_path.lower().endswith(ext) for ext in supported_extensions)
 
 
-def validate_required_fields(sender: str, recipients: List[str], subject: str, body: str) -> List[str]:
+def validate_required_fields(sender: SenderModel, recipients: List[str], subject: str, body: str) -> List[str]:
     """
     Valida campos obrigatórios e retorna lista de erros.
     
@@ -44,10 +46,10 @@ def validate_required_fields(sender: str, recipients: List[str], subject: str, b
         List[str]: Lista de mensagens de erro (vazia se válido)
     """
     errors = []
-    
-    if not sender or not sender.strip():
+
+    if not sender.address or not sender.address.strip():
         errors.append("Email do remetente é obrigatório")
-    elif not validate_email(sender):
+    elif not validate_email(sender.address):
         errors.append("Email do remetente inválido")
     
     if not recipients:
