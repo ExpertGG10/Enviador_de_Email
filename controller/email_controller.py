@@ -1,96 +1,114 @@
-# email_controller.py
 import os
 import smtplib
 import mimetypes
 import logging
+
 from models.email_model import EmailModel
+from models.sender_model import SenderModel
 
 logger = logging.getLogger(__name__)
 
 class EmailController:
-    def __init__(self, appPassword: str, senderAddress: str):
-        """
-        Controlador para gerenciar o envio de emails.
+    """
+    Controller that handles email sending.
+
+    Args:
+        app_password: application-specific password for SMTP auth
+        sender_address: sender email address
+    """
+    def __init__(self, sender: SenderModel):
+        logger.info(f"[INIT] Initializing EmailController for: {sender.address}")
+
+        self.sender = sender
         
-        params:
-        - appPassword (str): Senha de aplicativo para autenticação SMTP.
-        - senderAddress (str): Endereço de email do remetente.
+        logger.debug("[SMTP] Connecting to SMTP server...")
+        self.smtp_server = smtplib.SMTP_SSL('smtp.gmail.com', 465)
+        logger.debug("[OK] SMTP connection established")
+
+        logger.debug("[AUTH] Logging in to SMTP server...")
+        self.smtp_server.login(self.sender.address, self.sender.app_password)
+        logger.info("[OK] SMTP login successful")
+
+    def send_mass_emails(self, recipient_list: list[str], subject: str, body: str, attachments: list | None = None, progress = None) -> dict:
         """
-        logger.info(f"[INIT] Inicializando EmailController para: {senderAddress}")
+        Send emails in bulk to a list of recipients.
+        
+        Args:
+            recipient_list: List of recipient email addresses
+            subject: Subject of the email
+            body: Body content of the email (HTML format)
+            attachments: List of file paths to attach to the email
+            progress: Optional callable to report progress (current, total)
 
-        self.appPassword = appPassword
-        self.senderAddress = senderAddress
-
-        logger.debug("[SMTP] Conectando ao servidor SMTP...")
-        self.smtpServer = smtplib.SMTP_SSL('smtp.gmail.com', 465) 
-        logger.debug("[OK] Conexao SMTP estabelecida")
-
-        logger.debug("[AUTH] Fazendo login no servidor...")
-        self.smtpServer.login(self.senderAddress, self.appPassword)
-        logger.info("[OK] Login SMTP realizado com sucesso")
-
-    def sendMassEmails(self, recipientList: list[str], subject: str, body: str, attachments: list = None):
+        Returns:
+            A dictionary with counts of total, successful, and failed emails.
         """
-        Envia emails em massa para uma lista de destinatários.
-
-        params:
-        - recipientList (list[str]): Lista de endereços de email dos destinatários.
-        - subject (str): Assunto do email.
-        - body (str): Corpo do email (HTML).
-        - attachments (list): Lista de caminhos para arquivos anexos.
-        """
-        logger.info(f"[EMAIL] Iniciando envio em massa para {len(recipientList)} destinatarios")
-        logger.debug(f"[EMAIL] Assunto: {subject}")
+        logger.info(f"[EMAIL] Starting bulk send to {len(recipient_list)} recipients")
+        logger.debug(f"[EMAIL] Subject: {subject}")
         if attachments:
-            logger.info(f"[ANEXO] {len(attachments)} anexo(s) serão enviados com cada email")
-        
+            logger.info(f"[ATTACHMENT] {len(attachments)} attachment(s) will be sent with each email")
+
+        success_count = 0
+        failed_count = 0
+
         try:
-            for i, recipient in enumerate(recipientList, 1):
-                logger.debug(f"[EMAIL] Enviando email {i}/{len(recipientList)} para: {recipient}")
-                self.sendEmail(recipient, subject, body, attachments)
-                logger.debug(f"[OK] Email {i} enviado com sucesso")
+            for i, recipient in enumerate(recipient_list, 1):
+                logger.debug(f"[EMAIL] Sending email {i}/{len(recipient_list)} to: {recipient}")
+                try:
+                    email = EmailModel(self.sender.address, recipient, subject, body, attachments)
+                    result = self.send_email(email)
+                    if result:
+                        logger.debug(f"[OK] Email {i} sent successfully")
+                        success_count += 1
+                except Exception as e:
+                    failed_count += 1
+                    logger.error(f"[ERROR] Error sending email to {recipient}: {e}")
+
+                if progress:
+                    progress.emit(i)
+
+            logger.info("[OK] All emails were sent successfully")
+            logger.debug(f"[EMAIL] Bulk send results: {success_count} succeeded, {failed_count} failed")
             
-            logger.info("[OK] Todos os emails foram enviados com sucesso")
-            return True
+            return {
+                'total': len(recipient_list),
+                'success': success_count,
+                'failed': failed_count
+            }
         except smtplib.SMTPAuthenticationError:
-            logger.error("[ERRO] Erro de autenticacao SMTP")
-            raise ValueError("Erro de autenticação! Verifique o email e a senha de aplicativo.")
+            logger.error("[ERROR] SMTP authentication error")
+            
+            raise ValueError("Authentication error! Check the email and app password.")
         except Exception as e:
-            logger.error(f"[ERRO] Erro no envio em massa: {e}")
-            raise Exception(f"Ocorreu um erro: {e}")
-        
-    def sendEmail(self, recipientAddress: str, subject: str, body: str, attachments: list = None):
-        """
-        Envia um email para um destinatário específico.
-        
-        params:
-        - recipientAddress (str): Endereço de email do destinatário.
-        - subject (str): Assunto do email.
-        - body (str): Corpo do email (HTML).
-        - attachments (list): Lista de caminhos para arquivos anexos.
-        """
-        logger.debug(f"[EMAIL] Criando EmailModel para: {recipientAddress}")
-        if attachments:
-            logger.debug(f"[ANEXO] {len(attachments)} anexo(s) a serem enviados")
-        
-        try:
-            emailModel = EmailModel(self.senderAddress, recipientAddress, subject, body, attachments)
-            msg = emailModel.createMessage()
+            logger.error(f"[ERROR] Bulk send error: {e}")
+            raise Exception(f"An error occurred: {e}")
 
-            # Force o corpo para HTML SEM alterar o EmailModel
+    def send_email(self, email: EmailModel) -> bool:
+        """
+        Send a single email to a recipient.
+
+        Args:
+            email: EmailModel instance containing email details
+
+        Returns:
+            True if the email was sent successfully, False otherwise.
+        """
+        
+        if email.attachments:
+            logger.debug(f"[ATTACHMENT] {len(email.attachments)} attachment(s) will be sent")
+
+        try:
+            msg = email.create_message()
+
             try:
-                # 1) Coletar anexos já existentes (se o model os tiver criado)
                 existing_attachments = []
                 if msg.is_multipart():
                     for part in msg.iter_attachments():
                         existing_attachments.append(part)
 
-                # 2) Limpar o conteúdo e setar o HTML como corpo principal
-                #    (mantém headers como From, To, Subject, Date, Message-ID)
                 msg.clear_content()
-                msg.set_content(body, subtype="html", charset="utf-8")
+                msg.set_content(email.body, subtype="html", charset="utf-8")
 
-                # 3) Reanexar anexos que já estavam na mensagem
                 for part in existing_attachments:
                     data = part.get_payload(decode=True)
                     ctype = part.get_content_type()
@@ -98,10 +116,8 @@ class EmailController:
                     filename = part.get_filename()
                     msg.add_attachment(data, maintype=maintype, subtype=subtype, filename=filename)
 
-                # 4) Se o modelo não anexou nada, mas o controller recebeu attachments,
-                #    anexe aqui (fallback para garantir envio)
-                if not existing_attachments and attachments:
-                    for path in attachments:
+                if not existing_attachments and email.attachments:
+                    for path in email.attachments:
                         if not path:
                             continue
                         ctype, encoding = mimetypes.guess_type(path)
@@ -117,26 +133,26 @@ class EmailController:
                             filename=os.path.basename(path),
                         )
 
-                logger.debug("[EMAIL] Corpo forçado para HTML e anexos consolidados")
+                logger.debug("[EMAIL] Body forced to HTML and attachments consolidated")
             except Exception as adjust_err:
-                # Caso algo falhe na conversão para HTML, registra e tenta enviar do jeito que veio
-                logger.warning(f"[WARN] Nao foi possivel ajustar o corpo para HTML via controller: {adjust_err}. Enviando como criado pelo modelo.")
+                logger.warning(f"[WARN] Could not adjust body to HTML: {adjust_err}. Sending as created by model.")
 
-            logger.debug(f"[EMAIL] Enviando mensagem para: {recipientAddress}")
-            self.smtpServer.send_message(msg)
-            logger.debug(f"[OK] Email enviado com sucesso para: {recipientAddress}")
+            logger.debug(f"[EMAIL] Sending message to: {email.recipient_address}")
+            self.smtp_server.send_message(msg)
+            logger.debug(f"[OK] Email sent successfully to: {email.recipient_address}")
+
+            return True
         except smtplib.SMTPAuthenticationError:
-            logger.error(f"[ERRO] Erro de autenticacao ao enviar para: {recipientAddress}")
-            raise ValueError("Erro de autenticação! Verifique o email e a senha de aplicativo.")
+            logger.error(f"[ERROR] Authentication error when sending to: {email.recipient_address}")
+            raise ValueError("Authentication error! Check the email and app password.")
         except Exception as e:
-            logger.error(f"[ERRO] Erro ao enviar email para {recipientAddress}: {e}")
-            raise Exception(f"Ocorreu um erro: {e}")
-        
+            logger.error(f"[ERROR] Error sending email to {email.recipient_address}: {e}")
+            raise Exception(f"An error occurred: {e}")
+
     def __del__(self):
-        logger.debug("[SMTP] Fechando conexao SMTP...")
+        logger.debug("[SMTP] Closing SMTP connection...")
         try:
-            self.smtpServer.quit()
+            self.smtp_server.quit()
         except Exception:
-            # Evita exceção durante garbage collection se a conexão já estiver fechada
             pass
-        logger.debug("[OK] Conexao SMTP fechada")
+        logger.debug("[OK] SMTP connection closed")

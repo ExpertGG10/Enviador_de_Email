@@ -4,14 +4,14 @@ import os
 caminhoBase = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..', '..'))
 sys.path.insert(0, caminhoBase)
 
-from utils.util_arquivos import juntarCaminhos
+from utils.files import join_paths
 from PyInstaller.building.build_main import Analysis, PYZ, EXE
 
 dadosPadrao = [
-    (juntarCaminhos(caminhoBase, 'static'), 'static')
+    (join_paths(caminhoBase, 'static'), 'static')
 ]
 pathexPadrao = ['.']
-iconePadrao = [juntarCaminhos(caminhoBase, 'static\\images\\icon.ico')]
+iconePadrao = [join_paths(caminhoBase, 'static\\images\\icon.ico')]
 
 def criarAplicacao(
     *,
@@ -67,7 +67,7 @@ def criarAplicacao(
     if workpath is not None:
         analysis_kwargs["workpath"] = workpath
 
-    a = Analysis([juntarCaminhos(caminhoBase, script)], **analysis_kwargs)
+    a = Analysis([join_paths(caminhoBase, script)], **analysis_kwargs)
     pyz = PYZ(a.pure)
 
     exe_kwargs = dict(
