@@ -58,7 +58,8 @@ class EmailWorker(QThread):
                 self.subject,
                 self.body,
                 self.attachments,
-                progress=self.progress
+                progress=self.progress,
+                cancel_check=lambda: self._cancel_requested
             )
 
             if self._cancel_requested:
@@ -66,7 +67,9 @@ class EmailWorker(QThread):
                 self.finished.emit(False, "Cancelado pelo usuário")
                 return
 
-            if result['failed'] == 0:
+            if result.get('canceled', False):
+                self.finished.emit(False, "Envio cancelado pelo usuário")
+            elif result['failed'] == 0:
                 msg = 'Emails enviados com sucesso'
                 self.finished.emit(True, msg)
             else:

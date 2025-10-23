@@ -2,9 +2,11 @@ import os
 import smtplib
 import mimetypes
 import logging
+import time
 
 from models.email_model import EmailModel
 from models.sender_model import SenderModel
+from utils.exceptions import DailyLimitExceeded, RateLimitExceeded
 
 logger = logging.getLogger(__name__)
 
@@ -29,7 +31,7 @@ class EmailController:
         self.smtp_server.login(self.sender.address, self.sender.app_password)
         logger.info("[OK] SMTP login successful")
 
-    def send_mass_emails(self, recipient_list: list[str], subject: str, body: str, attachments: list | None = None, progress = None) -> dict:
+    def send_mass_emails(self, recipient_list: list[str], subject: str, body: str, attachments: list | None = None, progress = None, cancel_check = None) -> dict:
         """
         Send emails in bulk to a list of recipients.
         
@@ -39,6 +41,7 @@ class EmailController:
             body: Body content of the email (HTML format)
             attachments: List of file paths to attach to the email
             progress: Optional callable to report progress (current, total)
+            cancel_check: Optional callable that returns True if sending should be canceled
 
         Returns:
             A dictionary with counts of total, successful, and failed emails.
@@ -53,19 +56,41 @@ class EmailController:
 
         try:
             for i, recipient in enumerate(recipient_list, 1):
+                if cancel_check and cancel_check():
+                    logger.info("[CANCEL] Email sending canceled by user")
+                    return {
+                        'total': len(recipient_list),
+                        'success': success_count,
+                        'failed': failed_count,
+                        'canceled': True
+                    }
+                    
                 logger.debug(f"[EMAIL] Sending email {i}/{len(recipient_list)} to: {recipient}")
-                try:
-                    email = EmailModel(self.sender.address, recipient, subject, body, attachments)
-                    result = self.send_email(email)
-                    if result:
-                        logger.debug(f"[OK] Email {i} sent successfully")
-                        success_count += 1
-                except Exception as e:
-                    failed_count += 1
-                    logger.error(f"[ERROR] Error sending email to {recipient}: {e}")
+                attempt = 0
+                attempt_limit = 5
+                sleep_time = 60
 
-                if progress:
-                    progress.emit(i)
+                for j in range(attempt_limit):
+                    attempt += 1
+                    try:
+                        email = EmailModel(self.sender.address, recipient, subject, body, attachments)
+                        result = self.send_email(email)
+                        if result:
+                            logger.debug(f"[OK] Email {i} sent successfully")
+                            success_count += 1
+                            progress.emit(i)
+                            break
+                    except RateLimitExceeded as rate_err:
+                        logger.warning(f"[WARN] Rate limit exceeded when sending to: {recipient}: {rate_err}, trying again after delay. Attempt: {attempt}")
+                        time.sleep(sleep_time)
+                    except DailyLimitExceeded as daily_err:
+                        logger.error(f"[ERROR] Daily limit exceeded when sending to: {recipient}: {daily_err}")
+                        raise DailyLimitExceeded("[ERROR] Daily limit exceeded when sending to: {recipient}: {daily_err}")
+                    except Exception as e:
+                        failed_count += 1
+                        logger.error(f"[ERROR] Error sending email to {recipient}: {e}")
+                        raise Exception(f"An error occurred sending email to {recipient}: {e}")
+                        
 
             logger.info("[OK] All emails were sent successfully")
             logger.debug(f"[EMAIL] Bulk send results: {success_count} succeeded, {failed_count} failed")
@@ -77,7 +102,6 @@ class EmailController:
             }
         except smtplib.SMTPAuthenticationError:
             logger.error("[ERROR] SMTP authentication error")
-            
             raise ValueError("Authentication error! Check the email and app password.")
         except Exception as e:
             logger.error(f"[ERROR] Bulk send error: {e}")
@@ -146,8 +170,13 @@ class EmailController:
             logger.error(f"[ERROR] Authentication error when sending to: {email.recipient_address}")
             raise ValueError("Authentication error! Check the email and app password.")
         except Exception as e:
-            logger.error(f"[ERROR] Error sending email to {email.recipient_address}: {e}")
-            raise Exception(f"An error occurred: {e}")
+            if "4.2.1" in str(e):
+                raise RateLimitExceeded()
+            elif "5.4.5" in str(e):
+                raise DailyLimitExceeded()
+            else:
+                logger.error(f"[ERROR] Error sending email to {email.recipient_address}: {e}")
+                raise Exception(f"An error occurred: {e}")
 
     def __del__(self):
         logger.debug("[SMTP] Closing SMTP connection...")

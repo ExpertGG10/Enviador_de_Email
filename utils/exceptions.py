@@ -21,3 +21,10 @@ class EmailSendError(EmailServiceError):
 class FileProcessingError(EmailServiceError):
     """Exceção para erros de processamento de arquivo."""
     pass
+
+class RateLimitExceeded(EmailServiceError):
+    """Exceção para indicar que o limite de taxa de envio de emails foi excedido."""
+    pass
+
+class DailyLimitExceeded(EmailServiceError):
+    """Exceção para indicar que o limite de envios diário foi atingido"""
